@@ -16,15 +16,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained();
-            $table->string('client_name'); //Do usunięcia
-            $table->string('type_of_client');
+            $table->string('type_of_order');
             $table->unsignedInteger('quantity');
             $table->unsignedDouble('price');
             $table->date('date_of_purchase')->nullable();
-            $table->boolean('is_completed');
+            $table->boolean('is_completed'); //dodać deafult i dać 0
             $table->timestamps();
-
-
         });
     }
 

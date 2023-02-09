@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\client;
+use App\Models\Client;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -11,7 +11,7 @@ class ClientController extends Controller
     public function index()
     {
         return view('client.index', [
-            'clients' => Client::with('orders')->get(),
+            'clients' => Client::with('orders')->get()
         ]);
     }
 
@@ -24,10 +24,10 @@ class ClientController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'name' => 'min:3',
-            'lastname' => 'min:3',
-            'city' => 'required',
-            'status' => 'min:1',
+            'name' => ['min:3'],
+            'lastname' => ['min:3'],
+            'city' => ['required'],
+            'status' => ['min:1'],
         ]);
         Client::create($attributes);
 

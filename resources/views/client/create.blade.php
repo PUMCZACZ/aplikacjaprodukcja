@@ -8,17 +8,16 @@
                 <div class="border border-gray-300 p-6 rounded-xl">
                     <form method="POST" action="/client/compose">
                         @csrf
-
-                        <x-form.input name="name" required/>
-                        <x-form.input name="lastname" required/>
-                        <x-form.input name="city" required/>
-                        <x-form.input name="status" required/>
+                        <x-form.input name="name" required>Imię</x-form.input>
+                        <x-form.input name="lastname" required>Nazwisko</x-form.input>
+                        <x-form.input name="city" required>Miejscowość</x-form.input>
+                        <x-form.input name="status" required>Status</x-form.input>
 
                         <x-form.button>Dodaj</x-form.button>
                     </form>
+                    <x-form.error name="client"/>
                 </div>
             </main>
         </div>
     </section>
-
 </x-nav.layout>

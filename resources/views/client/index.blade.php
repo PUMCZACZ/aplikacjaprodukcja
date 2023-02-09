@@ -13,18 +13,19 @@
             </thead>
 
             @foreach($clients as $client)
-            <tbody>
-                <x-table.body-section>{{ $client->name }}</x-table.body-section>
-                <x-table.body-section>{{ $client->lastname }}</x-table.body-section>
-                <x-table.body-section>{{ $client->type_of_client }}</x-table.body-section>
-                <x-table.body-section>{{ $client->status}}</x-table.body-section>
-                <x-table.body-section>{{ $client->comments}}</x-table.body-section>
+                <tbody>
+
+                    <x-table.body-section>{{ $client->name}}</x-table.body-section>
+                    <x-table.body-section>{{ $client->lastname }}</x-table.body-section>
+                    <x-table.body-section>{{ $client->type_of_client }}</x-table.body-section>
+                    <x-table.body-section>{{ $client->name }}</x-table.body-section>
+                    <x-table.body-section>{{ $client->comments}}</x-table.body-section>
 
 
-                <x-table.add-buton>Dodaj</x-table.add-buton>
-                <x-table.edit-button>Edycja</x-table.edit-button>
-                <x-table.delete-button>Usuń</x-table.delete-button>
-            </tbody>
+                    <x-table.add-buton>Dodaj</x-table.add-buton>
+                    <x-table.edit-button>Edycja</x-table.edit-button>
+                    <x-table.delete-button>Usuń</x-table.delete-button>
+                </tbody>
             @endforeach
 
         </x-table.layout>
