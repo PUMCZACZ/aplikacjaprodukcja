@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('type_of_orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->constrained();
-            $table->string('type_of_order');
-            $table->unsignedInteger('quantity');
-            $table->unsignedDouble('price');
-            $table->date('date_of_purchase')->nullable();
-            $table->boolean('is_completed'); //dodać deafult i dać 0
+            $table->string('order_type');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        //
     }
 };

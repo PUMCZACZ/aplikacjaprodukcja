@@ -19,11 +19,23 @@
                                     @endforeach
                                 </select>
                         </x-form.field>
-                        <x-form.input name="type_of_order" required>Typ zamówienia</x-form.input>
+
+                        <x-form.field>
+                            <x-form.label>Typ Zamówienia</x-form.label>
+                                <select name="type_of_order_id" id="type_of_order_id" required>
+                                    @foreach($typeOfOrders as $typeOfOrder)
+                                        <option
+                                            value="{{ $typeOfOrder->id }}"
+                                            {{ old('type_of_order_id') == $typeOfOrder->id ? 'selected' : '' }}
+                                        >{{ucwords($typeOfOrder->order_type)}}</option>
+                                    @endforeach
+                                </select>
+                        </x-form.field>
+
                         <x-form.input name="quantity" required>Ilość</x-form.input>
                         <x-form.input name="price" required>Cena</x-form.input>
                         <x-form.input name="date" type="date">Data Zamówienia</x-form.input>
-                        <x-form.input name="is_completed">Is completed</x-form.input>
+{{--                        <x-form.input name="is_completed">Is completed</x-form.input>--}}
 
                         <x-form.button>Dodaj</x-form.button>
 

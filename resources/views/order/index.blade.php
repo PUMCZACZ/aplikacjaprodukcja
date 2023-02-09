@@ -13,12 +13,16 @@
                     </tr>
                 </thead>
                 @foreach($orders as $order)
+
                     <tbody>
                         <x-table.body-section>{{ $order->clients->name }}</x-table.body-section>
-                        <x-table.body-section>{{ $order->type_of_order }}</x-table.body-section>
+                        @foreach($typeOfOrders as $typeOfOrder)
+                            <x-table.body-section>{{ $typeOfOrder->typeOfOrders->order_type }}</x-table.body-section>
+                        @endforeach
+
                         <x-table.body-section>{{ $order->quantity }}</x-table.body-section>
                         <x-table.body-section>{{ $order->price }}</x-table.body-section>
-                        <x-table.body-section>{{ $order->date_of_purchase }}</x-table.body-section>
+                        <x-table.body-section>{{ $order->created_at }}</x-table.body-section>
                         <x-table.body-section>{{ $order->is_completed }}</x-table.body-section>
                     </tbody>
                 @endforeach

@@ -15,4 +15,9 @@ class Order extends Model
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
 
+    public function typeOfOrders()
+    {
+        return $this->belongsTo(TypeOfOrder::class, 'type_of_order_id', 'id');
+    }
+
 }
