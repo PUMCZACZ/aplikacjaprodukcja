@@ -22,8 +22,7 @@
                     <x-table.body-section>{{ $client->comments}}</x-table.body-section>
 
 
-                    <x-table.add-buton>Dodaj</x-table.add-buton>
-                    <x-table.edit-button>Edycja</x-table.edit-button>
+                    <x-table.edit-button href="/client/{{ $client->id }}/edit">Edycja</x-table.edit-button>
                     <x-table.delete-button>Usuń</x-table.delete-button>
                 </tbody>
             @endforeach

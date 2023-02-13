@@ -23,13 +23,7 @@ class ClientController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'name' => ['min:3'],
-            'lastname' => ['min:3'],
-            'city' => ['required'],
-            'status' => ['min:1'],
-        ]);
-        Client::create($attributes);
+        Client::create(array_merge($this->validateClient()));
 
         return redirect('/client');
     }
@@ -45,27 +39,18 @@ class ClientController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\client  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(client $m)
+    public function edit(Client $client)
     {
-        //
+        return view('client.edit', ['client' => $client]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\client  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, client $m)
+    public function update(Client $client)
     {
-        //
+        $attributes = $this->validateClient();
+
+        $client->update($attributes);
+
+        return redirect('/client');
     }
 
     /**
@@ -77,5 +62,16 @@ class ClientController extends Controller
     public function destroy(client $m)
     {
         //
+    }
+    protected function validateClient(?Client $client = null): array
+    {
+        $client ??= new Client();
+
+        return request()->validate([
+            'name' => ['min:3'],
+            'lastname' => ['min:3'],
+            'city' => ['required'],
+            'status' => ['min:1'],
+        ]);
     }
 }
