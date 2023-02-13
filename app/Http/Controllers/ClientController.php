@@ -28,15 +28,9 @@ class ClientController extends Controller
         return redirect('/client');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\client  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function show(client $m)
+    public function show(Client $client)
     {
-        //
+        return view('client.show');
     }
 
     public function edit(Client $client)
@@ -53,15 +47,11 @@ class ClientController extends Controller
         return redirect('/client');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\client  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(client $m)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect('/client');
     }
     protected function validateClient(?Client $client = null): array
     {

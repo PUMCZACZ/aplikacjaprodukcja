@@ -15,15 +15,15 @@
                 @foreach($orders as $order)
 
                     <tbody>
-                        <x-table.body-section>{{ $order->clients->name }}</x-table.body-section>
+                        <x-table.paragraph-body-section>{{ $order->clients->name }}</x-table.paragraph-body-section>
                         @foreach($typeOfOrders as $typeOfOrder)
-                            <x-table.body-section>{{ $typeOfOrder->typeOfOrders->order_type }}</x-table.body-section>
+                            <x-table.paragraph-body-section>{{ $typeOfOrder->typeOfOrders->order_type }}</x-table.paragraph-body-section>
                         @endforeach
 
-                        <x-table.body-section>{{ $order->quantity }}</x-table.body-section>
-                        <x-table.body-section>{{ $order->price }}</x-table.body-section>
-                        <x-table.body-section>{{ $order->created_at }}</x-table.body-section>
-                        <x-table.body-section>{{ $order->is_completed }}</x-table.body-section>
+                        <x-table.paragraph-body-section>{{ $order->quantity }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->price }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->is_completed }}</x-table.paragraph-body-section>
                     </tbody>
                 @endforeach
         </x-table.layout>
