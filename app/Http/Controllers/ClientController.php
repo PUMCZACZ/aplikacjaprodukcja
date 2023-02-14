@@ -28,9 +28,10 @@ class ClientController extends Controller
         return redirect('/client');
     }
 
-    public function show(Client $client)
+    public function show($id)
     {
-        return view('client.show');
+        $client = Client::with('orders')->find($id);
+        return view('client.show')->with('client', $client);
     }
 
     public function edit(Client $client)

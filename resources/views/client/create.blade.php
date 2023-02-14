@@ -12,6 +12,7 @@
                         <x-form.input name="lastname" required>Nazwisko</x-form.input>
                         <x-form.input name="city" required>Miejscowość</x-form.input>
                         <x-form.input name="status" required>Status</x-form.input>
+
                         <x-form.button>Dodaj</x-form.button>
                     </form>
                 </div>
