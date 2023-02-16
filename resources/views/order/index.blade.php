@@ -16,14 +16,12 @@
 
                     <tbody>
                         <x-table.paragraph-body-section>{{ $order->clients->name }}</x-table.paragraph-body-section>
-                        @foreach($typeOfOrders as $typeOfOrder)
-                            <x-table.paragraph-body-section>{{ $typeOfOrder->typeOfOrders->order_type }}</x-table.paragraph-body-section>
-                        @endforeach
-
-                        <x-table.paragraph-body-section>{{ $order->quantity }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->price }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->typeOfOrders->order_type }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->quantity . " szt"}}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->price . " zł"}}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->is_completed }}</x-table.paragraph-body-section>
+                        <x-table.edit-button href="/order/{{ $order->id }}/edit">Edycja</x-table.edit-button>
                     </tbody>
                 @endforeach
         </x-table.layout>

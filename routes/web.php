@@ -22,4 +22,5 @@ Route::get('/transport', [TransportController::class, 'index'])->name('transport
 Route::get('/order', [OrderController::class, 'index'])->name('order');
 Route::get('/order/create', [OrderController::class, 'create'])->name('order/create');
 Route::post('/order/create', [OrderController::class, 'store']);
+Route::get('/order/{order:id}/edit', [OrderController::class, 'edit']);
 

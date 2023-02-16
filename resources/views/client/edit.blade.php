@@ -11,9 +11,9 @@
                         @method('PATCH')
 
                         <x-form.input name="name" :value="old('name', $client->name)" required>Imię</x-form.input>
-                        <x-form.input name="lastname" :value="old('name', $client->lastname)" required>Nazwisko</x-form.input>
-                        <x-form.input name="city" :value="old('name', $client->city)" required>Miejscowość</x-form.input>
-                        <x-form.input name="status" :value="old('name', $client->status)" required>Status</x-form.input>
+                        <x-form.input name="lastname" :value="old('lastname', $client->lastname)" required>Nazwisko</x-form.input>
+                        <x-form.input name="city" :value="old('city', $client->city)" required>Miejscowość</x-form.input>
+                        <x-form.input name="status" :value="old('status', $client->status)" required>Status</x-form.input>
 
                         <x-form.button>Zatwierdź</x-form.button>
                     </form>

@@ -33,10 +33,17 @@ class OrderController extends Controller
             'type_of_order_id' => ['required'],
             'price' => ['required'],
             'quantity' => ['required'],
-            'date_of_purchase' => [],
         ]);
         Order::create($attributes);
 
         return redirect('/order');
+    }
+
+    public function edit(Order $order)
+    {
+        return view('order.edit',[
+            'order' => $order,
+            'clients' => Client::all()
+        ]);
     }
 }

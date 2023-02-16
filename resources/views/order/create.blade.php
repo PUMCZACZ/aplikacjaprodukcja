@@ -6,7 +6,7 @@
         <div class="flex">
             <main class="flex-1">
                 <div class="border border-gray-300 p-6 rounded-xl">
-                    <form method="POST" action="">
+                    <form method="POST" action="/order/create">
                         @csrf
                         <x-form.field>
                             <x-form.label>Klient</x-form.label>
@@ -34,8 +34,6 @@
 
                         <x-form.input name="quantity" required>Ilość</x-form.input>
                         <x-form.input name="price" required>Cena</x-form.input>
-                        <x-form.input name="date" type="date">Data Zamówienia</x-form.input>
-{{--                        <x-form.input name="is_completed">Is completed</x-form.input>--}}
 
                         <x-form.button>Dodaj</x-form.button>
 
