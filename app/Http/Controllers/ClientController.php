@@ -54,6 +54,11 @@ class ClientController extends Controller
 
         return redirect('/client');
     }
+
+    public function sumPrice()
+    {
+        return $this->orders()->price;
+    }
     protected function validateClient(?Client $client = null): array
     {
         $client ??= new Client();
