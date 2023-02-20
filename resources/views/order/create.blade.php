@@ -15,7 +15,7 @@
                                         <option
                                             value="{{ $client->id }}"
                                             {{ old('client_id') == $client->id ? 'selected' : '' }}
-                                        >{{ ucwords($client->name)}}</option>
+                                        >{{ ucwords($client->name . ' ' . $client->lastname)}}</option>
                                     @endforeach
                                 </select>
                         </x-form.field>

@@ -62,4 +62,10 @@ class OrderController extends Controller
             'quantity' => ['required'],
         ]);
     }
+    public function destroy(Order $order)
+    {
+        $order->delete();
+
+        return redirect('/order');
+    }
 }

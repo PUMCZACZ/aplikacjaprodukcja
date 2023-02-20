@@ -24,4 +24,5 @@ Route::get('/order/create', [OrderController::class, 'create'])->name('order/cre
 Route::post('/order/create', [OrderController::class, 'store']);
 Route::get('/order/{order:id}/edit', [OrderController::class, 'edit']);
 Route::patch('/order/edit/{order:id}', [OrderController::class, 'update']);
+Route::delete('/order/delete/{order:id}', [OrderController::class, 'destroy']);
 

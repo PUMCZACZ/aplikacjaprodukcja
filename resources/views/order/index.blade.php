@@ -29,6 +29,7 @@
                         </x-table.paragraph-body-section>
 
                         <x-table.edit-button href="/order/{{ $order->id }}/edit">Edycja</x-table.edit-button>
+                        <x-table.delete-button action="/order/delete/{{ $order->id }}">Usuń</x-table.delete-button>
                     </tbody>
                 @endforeach
         </x-table.layout>

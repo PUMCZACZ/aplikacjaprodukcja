@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('lastname')->nullable();
             $table->string('city');
             $table->unsignedTinyInteger('status');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 
