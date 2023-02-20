@@ -28,12 +28,8 @@ class OrderController extends Controller
 
     public function store()
     {
-        $attributes = request()->validate([
-            'client_id' => ['required'],
-            'type_of_order_id' => ['required'],
-            'price' => ['required'],
-            'quantity' => ['required'],
-        ]);
+        $attributes = $this->validateOrder();
+
         Order::create($attributes);
 
         return redirect('/order');
@@ -43,7 +39,27 @@ class OrderController extends Controller
     {
         return view('order.edit',[
             'order' => $order,
-            'clients' => Client::all()
+            'typeOfOrders' => TypeOfOrder::all()
+        ]);
+    }
+    public function update(Order $order)
+    {
+        $attributes = $this->validateOrder();
+
+        $order->update($attributes);
+
+        return redirect('/order');
+    }
+
+    protected function validateOrder(?Order $order = null): array
+    {
+        $order ??= new Order();
+
+        return request()->validate([
+            'client_id' => ['required'],
+            'type_of_order_id' => ['required'],
+            'price' => ['required'],
+            'quantity' => ['required'],
         ]);
     }
 }

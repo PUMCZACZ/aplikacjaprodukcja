@@ -6,9 +6,9 @@
         <div class="flex">
             <main class="flex-1">
                 <div class="border border-gray-300 p-6 rounded-xl">
-                    <form method="POST" action="">
+                    <form method="POST" action="/order/edit/{{ $order->id }}">
                         @csrf
-{{--                        @method('PATCH')--}}
+                        @method('PATCH')
                         <x-form.field>
                             <x-form.label>Klient</x-form.label>
                             <select name="client_id" id="client_id" required>
@@ -22,14 +22,13 @@
 
                         <x-form.field>
                             <x-form.label>Typ Zamówienia</x-form.label>
-                            <select name="type_of_order_id" id="type_of_order_id" required >
-{{--                                    @foreach($orders as $listOrder)--}}
-{{--                                        <option--}}
-{{--                                            value="{{ $order->type_of_order_id }}"--}}
-{{--                                            {{ old('type_of_order_id') == $order->type_of_order_id ? 'selected' : '' }}--}}
-{{--                                        >{{ucwords($listOrder->typeOfOrders->order_type)}}--}}
-{{--                                        </option>--}}
-{{--                                    @endforeach--}}
+                            <select name="type_of_order_id" id="type_of_order_id" required>
+                                @foreach($typeOfOrders as $typeOfOrder)
+                                    <option
+                                        value="{{ $typeOfOrder->id }} ">
+                                        {{ $typeOfOrder->order_type }}
+                                    </option>
+                                @endforeach
                             </select>
                         </x-form.field>
                         <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość</x-form.input>
@@ -41,4 +40,3 @@
         </div>
     </section>
 </x-nav.layout>
-@dd($order)

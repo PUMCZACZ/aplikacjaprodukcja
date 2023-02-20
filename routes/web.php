@@ -16,11 +16,12 @@ Route::get('/client/{client:id}/edit', [ClientController::class, 'edit']);
 Route::patch('/client/edit/{client:id}', [ClientController::class, 'update']);
 Route::delete('/client/delete/{client:id}', [ClientController::class, 'destroy']);
 Route::get('/client/show/{client:id}', [ClientController::class, 'show']);
-;
+
 Route::get('/transport', [TransportController::class, 'index'])->name('transport');
 
 Route::get('/order', [OrderController::class, 'index'])->name('order');
 Route::get('/order/create', [OrderController::class, 'create'])->name('order/create');
 Route::post('/order/create', [OrderController::class, 'store']);
 Route::get('/order/{order:id}/edit', [OrderController::class, 'edit']);
+Route::patch('/order/edit/{order:id}', [OrderController::class, 'update']);
 
