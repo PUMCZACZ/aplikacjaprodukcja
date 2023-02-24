@@ -10,7 +10,6 @@ class ClientRequest extends FormRequest
         return true;
     }
 
-
     public function rules(): array
     {
         return [
@@ -24,10 +23,10 @@ class ClientRequest extends FormRequest
     public function toData(): array
     {
         return [
-            'name' => $this->input('name'),
+            'name'     => $this->input('name'),
             'lastname' => $this->input('lastname'),
-            'city' => $this->input('city'),
-            'status' => $this->input('status'),
+            'city'     => $this->input('city'),
+            'status'   => $this->input('status'),
         ];
     }
 }
