@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,9 +17,9 @@ class OrderFactory extends Factory
     {
         return [
             'name_of_company' => fake()->name(),
-            'price' => fake()->numberBetween(1-1200),
-            'quantity' => fake()->numberBetween(1-24),
-            'arrived_at' => now(),
+            'price'           => fake()->numberBetween(1 - 1200),
+            'quantity'        => fake()->numberBetween(1 - 24),
+            'arrived_at'      => now(),
         ];
     }
 }
