@@ -33,18 +33,18 @@
                     </thead>
                     @foreach($client->orders as $order)
                         <tbody>
-                        <x-table.paragraph-body-section>{{ $loop->iteration }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->typeOfOrders->order_type }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->quantity . " szt" }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ number_format($order->price, 2) . " zł" }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>
-                            @if($order->is_completed == 0)
-                                Niezrealizowane
-                            @else
-                                Zrealizowane
-                            @endif
-                        </x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>{{ $loop->iteration }}</x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>{{ $order->order_type}}</x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>{{ $order->quantity . " szt" }}</x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>{{ $order->price / 100, 2 . " zł" }}</x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
+                            <x-table.paragraph-body-section>
+                                @if($order->is_completed == 0)
+                                    Niezrealizowane
+                                @else
+                                    Zrealizowane
+                                @endif
+                            </x-table.paragraph-body-section>
                         </tbody>
                     @endforeach
                 </table>

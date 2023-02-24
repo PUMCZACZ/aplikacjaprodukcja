@@ -22,18 +22,16 @@
 
                         <x-form.field>
                             <x-form.label>Typ Zamówienia</x-form.label>
-                                <select name="type_of_order_id" id="type_of_order_id" required>
-                                    @foreach($typeOfOrders as $typeOfOrder)
-                                        <option
-                                            value="{{ $typeOfOrder->id }}"
-                                            {{ old('type_of_order_id') == $typeOfOrder->id ? 'selected' : '' }}
-                                        >{{ucwords($typeOfOrder->order_type)}}</option>
-                                    @endforeach
-                                </select>
+                            <select name="order_type">
+                                @foreach(\App\OrderTypeEnum::cases() as $type)
+                                    <option value="{{ $type->value }}">{{ $type->translate() }}</option>
+                                @endforeach
+                            </select>
                         </x-form.field>
 
-                        <x-form.input name="quantity" required>Ilość</x-form.input>
-                        <x-form.input name="price" required>Cena</x-form.input>
+                        <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>
+                        <x-form.input name="price" type="number" step="0.01" min="0.01" required>Cena</x-form.input>
+{{--                        <input name="price" type="number" step="0.01" min="0.01" required class="" />--}}
 
                         <x-form.button>Dodaj</x-form.button>
 

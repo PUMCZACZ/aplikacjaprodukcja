@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,6 +23,5 @@ class DatabaseSeeder extends Seeder
         // ]);
         Client::factory(5)->create();
         Order::factory(5)->create();
-
     }
 }

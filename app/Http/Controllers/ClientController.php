@@ -1,29 +1,26 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use App\Models\Client;
-use App\Models\Order;
-use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     public function index()
     {
         return view('client.index', [
-            'clients' => Client::with('orders')->get()
+            'clients' => Client::with('orders')->get(),
         ]);
     }
-
 
     public function create()
     {
         return view('client.create');
     }
 
-    public function store()
+    public function store(StoreClientRequest $request)
     {
-        Client::create(array_merge($this->validateClient()));
+        Client::create($request->toData());
 
         return redirect('/client');
     }
@@ -31,6 +28,7 @@ class ClientController extends Controller
     public function show($id)
     {
         $client = Client::with('orders')->find($id);
+
         return view('client.show')->with('client', $client);
     }
 
@@ -39,9 +37,9 @@ class ClientController extends Controller
         return view('client.edit', ['client' => $client]);
     }
 
-    public function update(Client $client)
+    public function update(Client $client, StoreClientRequest $request)
     {
-        $attributes = $this->validateClient();
+        $attributes = $request->toData();
 
         $client->update($attributes);
 
@@ -55,19 +53,5 @@ class ClientController extends Controller
         return redirect('/client');
     }
 
-    public function sumPrice()
-    {
-        return $this->orders()->price;
-    }
-    protected function validateClient(?Client $client = null): array
-    {
-        $client ??= new Client();
 
-        return request()->validate([
-            'name' => ['min:3'],
-            'lastname' => ['min:3'],
-            'city' => ['required'],
-            'status' => ['min:1'],
-        ]);
-    }
 }
