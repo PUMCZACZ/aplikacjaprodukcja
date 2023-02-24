@@ -17,8 +17,8 @@
                     <tbody>
                         <x-table.paragraph-body-section>{{ $order->clients->name . ' ' . $order->clients->lastname }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->order_type->translate() }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->showQuantity() }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{  $order->showMoneyInPln() }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->quantity . " szt"}}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{  $order->price / 100 . " zł" }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->deadline }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>

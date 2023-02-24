@@ -13,9 +13,14 @@ return new class() extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->string('order_type')->nullable();
-            $table->unsignedInteger('price')->change();
+        Schema::create('transport', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug');
+            $table->string('name_of_company');
+            $table->string('type_of_product');
+            $table->date('delivered_at');
+            $table->unsignedInteger('product_amount');
+            $table->double('product_price');
         });
     }
 
@@ -26,8 +31,6 @@ return new class() extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('transport');
     }
 };
