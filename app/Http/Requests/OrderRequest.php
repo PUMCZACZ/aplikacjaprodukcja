@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreOrderRequest extends FormRequest
+class OrderRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,6 +17,7 @@ class StoreOrderRequest extends FormRequest
             'order_type' => ['required'],
             'price'      => ['required', 'numeric', 'min:0.01'],
             'quantity'   => ['required'],
+            'deadline' => ['required']
         ];
     }
 
@@ -24,13 +25,18 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             'price.min'     => 'wartość tylko dodatnia',
-            'price.numeric' => 'podaj numer pało',
+            'price.numeric' => 'podaj numer',
         ];
     }
 
     public function priceToCents(): int
     {
         return floor(100 * $this->input('price', 0));
+    }
+
+    public function dateToFormat(): string
+    {
+        return $this->input('deadline')->format('d-m-Y');
     }
 
     public function toData(): array
@@ -40,6 +46,7 @@ class StoreOrderRequest extends FormRequest
             'price'      => $this->priceToCents(),
             'quantity'   => $this->input('quantity'),
             'order_type' => $this->input('order_type'),
+            'deadline' => $this->input('deadline'),
         ];
     }
 }

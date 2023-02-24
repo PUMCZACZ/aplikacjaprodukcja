@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool is_completed
  * @property Carbon updated_at
  * @property Carbon created_at
+ * @property Carbon deadline
  */
 class Order extends Model
 {
@@ -28,5 +29,15 @@ class Order extends Model
     public function clients()
     {
         return $this->belongsTo(Client::class, 'client_id', 'id');
+    }
+
+    public function showMoneyInPln(): string
+    {
+        return $this->price / 100 . " zł";
+    }
+
+    public function showQuantity(): string
+    {
+        return $this->quantity . ' szt';
     }
 }

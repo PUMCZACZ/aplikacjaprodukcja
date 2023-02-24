@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOrderRequest;
+use App\Http\Requests\OrderRequest;
 use App\Models\Client;
 use App\Models\Order;
 
@@ -21,7 +21,7 @@ class OrderController extends Controller
         ]);
     }
 
-    public function store(StoreOrderRequest $request)
+    public function store(OrderRequest $request)
     {
         Order::create($request->toData());
 
@@ -35,7 +35,7 @@ class OrderController extends Controller
         ]);
     }
 
-    public function update(Order $order, StoreOrderRequest $request)
+    public function update(Order $order, OrderRequest $request)
     {
         $attributes = $request->toData();
 
