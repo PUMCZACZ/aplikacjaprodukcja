@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderRequest extends FormRequest
@@ -17,7 +18,7 @@ class OrderRequest extends FormRequest
             'order_type' => ['required'],
             'price'      => ['required', 'numeric', 'min:0.01'],
             'quantity'   => ['required'],
-            'deadline' => ['required']
+            'deadline'   => ['required'],
         ];
     }
 
@@ -29,14 +30,26 @@ class OrderRequest extends FormRequest
         ];
     }
 
+//    public function priceToKilo(): int
+//    {
+//        if (\App\OrderTypeEnum::cases() === 'bag') {
+//            return $this->price * 25;
+//        } elseif (\App\OrderTypeEnum::cases() === 'bigbag') {
+//            return $this->price * 20;
+//        } elseif (\App\OrderTypeEnum::cases() === 'loose') {
+//            return $this->price * 22;
+//        } else {
+//            return false;
+//        }
+//    }
     public function priceToCents(): int
     {
         return floor(100 * $this->input('price', 0));
     }
 
-    public function dateToFormat(): string
+    public function deadlineCarbon(): Carbon
     {
-        return $this->input('deadline')->format('d-m-Y');
+        return Carbon::parse($this->input('deadline'));
     }
 
     public function toData(): array
@@ -46,7 +59,7 @@ class OrderRequest extends FormRequest
             'price'      => $this->priceToCents(),
             'quantity'   => $this->input('quantity'),
             'order_type' => $this->input('order_type'),
-            'deadline' => $this->input('deadline'),
+            'deadline'   => $this->deadlineCarbon(),
         ];
     }
 }

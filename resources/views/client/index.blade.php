@@ -13,7 +13,7 @@
 
             @foreach($clients as $client)
                 <tbody>
-                <tr class="clickable-row" data-href="/client/show/{{ $client->id }}">
+                <tr>
                     <x-table.ahref-body-section href="/client/show/{{ $client->id }}">{{ $client->name}}</x-table.ahref-body-section>
                     <x-table.paragraph-body-section>{{ $client->lastname }}</x-table.paragraph-body-section>
                     <x-table.paragraph-body-section>{{ $client->city }}</x-table.paragraph-body-section>
@@ -27,11 +27,4 @@
     </section>
 </x-nav.layout>
 
-<script>
-jQuery(document).ready(function($) {
-$(".clickable-row").click(function() {
-window.location = $(this).data("href");
-});
-});
-</script>
 

@@ -30,8 +30,9 @@
                         </x-form.field>
 
                         <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>
-                        <x-form.input name="price" type="number" step="0.01" min="0.01" required>Cena</x-form.input>
-                        <x-form.input name="deadline" type="date" min="{{ now()->format('d-m-Y') }}" required>Termin Realizacji Zamówienia</x-form.input>
+                        <x-form.input name="price" type="number" step="0.01" min="0.01" required val>Cena</x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" min="{{ now()->format('d-m-Y') }}" required>Termin Realizacji Zamówienia</x-form.input>
+
                         <x-form.button>Dodaj</x-form.button>
 
                         <x-form.error name="orders"/>
