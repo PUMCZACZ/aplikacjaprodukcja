@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property bool is_completed
  * @property Carbon updated_at
  * @property Carbon created_at
+ * @property Carbon deadline
  */
 class Order extends Model
 {
@@ -29,4 +30,12 @@ class Order extends Model
     {
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
+
+    public function priceToDolars(): float
+    {
+        return $this->price / 100;
+    }
+
+
+
 }

@@ -7,7 +7,8 @@
                         <x-table.paragraph-head-section>Typ Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Ilość</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Cena</x-table.paragraph-head-section>
-                        <x-table.paragraph-head-section>Data Zakupu</x-table.paragraph-head-section>
+                        <x-table.paragraph-head-section>Data Złożenia Zamówienia</x-table.paragraph-head-section>
+                        <x-table.paragraph-head-section>Data Realiacji Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Zrealizowane</x-table.paragraph-head-section>
                         <x-table.ahref-head-section :href="route('order/create')">Dodaj Zamównienie</x-table.ahref-head-section>
                     </tr>
@@ -16,9 +17,15 @@
                     <tbody>
                         <x-table.paragraph-body-section>{{ $order->clients->name . ' ' . $order->clients->lastname }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->order_type->translate() }}</x-table.paragraph-body-section>
+<<<<<<< HEAD
+                        <x-table.paragraph-body-section>{{ $order->quantity . " szt" }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{  $order->priceToDolars() . " zł" }}</x-table.paragraph-body-section>
+=======
                         <x-table.paragraph-body-section>{{ $order->quantity . " szt"}}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{  $order->price / 100 . " zł" }}</x-table.paragraph-body-section>
+>>>>>>> to-check
                         <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->deadline }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>
                             @if($order->is_completed == 0)
                                 Niezrealizowane

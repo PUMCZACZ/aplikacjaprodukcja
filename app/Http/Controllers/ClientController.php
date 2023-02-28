@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 
 class ClientController extends Controller
@@ -18,7 +18,7 @@ class ClientController extends Controller
         return view('client.create');
     }
 
-    public function store(StoreClientRequest $request)
+    public function store(ClientRequest $request)
     {
         Client::create($request->toData());
 
@@ -37,7 +37,7 @@ class ClientController extends Controller
         return view('client.edit', ['client' => $client]);
     }
 
-    public function update(Client $client, StoreClientRequest $request)
+    public function update(Client $client, ClientRequest $request)
     {
         $attributes = $request->toData();
 
@@ -52,6 +52,4 @@ class ClientController extends Controller
 
         return redirect('/client');
     }
-
-
 }
