@@ -29,19 +29,6 @@ class OrderRequest extends FormRequest
             'price.numeric' => 'podaj numer',
         ];
     }
-
-//    public function priceToKilo(): int
-//    {
-//        if (\App\OrderTypeEnum::cases() === 'bag') {
-//            return $this->price * 25;
-//        } elseif (\App\OrderTypeEnum::cases() === 'bigbag') {
-//            return $this->price * 20;
-//        } elseif (\App\OrderTypeEnum::cases() === 'loose') {
-//            return $this->price * 22;
-//        } else {
-//            return false;
-//        }
-//    }
     public function priceToCents(): int
     {
         return floor(100 * $this->input('price', 0));
