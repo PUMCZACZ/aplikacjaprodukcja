@@ -14,4 +14,15 @@ class ExampleTest extends TestCase
     {
         $this->assertTrue(true);
     }
+
+    /** @test */
+    public function it_tests_something()
+    {
+        // given
+
+        // when
+
+        // then
+        $this->assertTrue(true);
+    }
 }
