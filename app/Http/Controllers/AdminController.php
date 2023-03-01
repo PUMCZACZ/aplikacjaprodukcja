@@ -1,17 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
 use App\Models\Admin;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index',[
-            'setting' =>Admin::orderBy('id', 'desc')->first()
+        return view('admin.index', [
+            'setting' => Admin::orderBy('id', 'desc')->first(),
         ]);
     }
 
@@ -26,5 +24,4 @@ class AdminController extends Controller
 
         return redirect('/admin');
     }
-
 }

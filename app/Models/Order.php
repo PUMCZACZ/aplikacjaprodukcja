@@ -35,7 +35,4 @@ class Order extends Model
     {
         return $this->price / 100;
     }
-
-
-
 }

@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransportController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('home');
 

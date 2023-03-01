@@ -29,6 +29,7 @@ class OrderRequest extends FormRequest
             'price.numeric' => 'podaj numer',
         ];
     }
+
     public function priceToCents(): int
     {
         return floor(100 * $this->input('price', 0));
