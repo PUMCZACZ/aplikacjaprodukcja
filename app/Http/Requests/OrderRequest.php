@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests;
 
+use App\Money;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -32,7 +33,7 @@ class OrderRequest extends FormRequest
 
     public function priceToCents(): int
     {
-        return floor(100 * $this->input('price', 0));
+        return Money::priceToCents($this->input('price', 0));
     }
 
     public function deadlineCarbon(): Carbon
