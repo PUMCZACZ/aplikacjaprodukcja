@@ -5,9 +5,9 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @property int    $id
- * @property int    $netto_price
- * @property int    $brutto_price
+ * @property int    id
+ * @property int    netto_price
+ * @property int    brutto_price
  * @property int    bag_price
  * @property int    bigbag_price
  * @property int    loose_price

@@ -44,7 +44,7 @@ class AdminRequest extends FormRequest
             'brutto_price'              => $service->toBrutto(),
             'bag_price'                 => $service->bagPackingCostPrice(),
             'bigbag_price'              => $service->bigbagPackingCostPrice(),
-            'loose_price'              => $service->loosePackingCostPrice(),
+            'loose_price'               => $service->loosePackingCostPrice(),
             'bag_packing_cost_price'    => $this->input('bag_packing_cost_price'),
             'bigbag_packing_cost_price' => $this->input('bigbag_packing_cost_price'),
             'loose_packing_cost_price'  => $this->input('loose_packing_cost_price'),

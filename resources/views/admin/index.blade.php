@@ -1,3 +1,9 @@
+@php
+/**
+* @var \App\Models\Admin $setting
+*/
+@endphp
+
 <x-nav.layout>
     <div class="flex">
         <x-admin.index-view value="{{ $setting->netto_price }}">Cena Netto</x-admin.index-view>
