@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon        deadline
  * @property int           admin_id
  *
- * @property float         packing_price
+ * @property float         packing_cost
  */
 class Order extends Model
 {
@@ -47,7 +47,7 @@ class Order extends Model
 
     public function isCompleted(): bool
     {
-        return true;
+        return $this->completed_at !== null;
     }
 
     public function recalculatePrices(): void
@@ -60,8 +60,8 @@ class Order extends Model
         $costService = app(CostService::class);
 
         $this->update([
-            'packing_price' => $costService->getPackingCost($this),
-            'price'         => $costService->price($this),
+            'packing_cost' => $costService->getPackingCost($this),
+            'price'        => $costService->price($this),
         ]);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 namespace Database\Factories;
 
+use App\Models\Client;
+use App\OrderTypeEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +18,13 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'name_of_company' => fake()->name(),
-            'price'           => fake()->numberBetween(1 - 1200),
-            'quantity'        => fake()->numberBetween(1 - 24),
-            'arrived_at'      => now(),
+            'order_type'   => OrderTypeEnum::BAG,
+            'client_id'    => Client::factory(),
+            'quantity'     => fake()->numberBetween(1, 1000),
+            'weight'       => fake()->numberBetween(1, 1000),
+            'price'        => null,
+            'completed_at' => null,
+            'deadline'     => fake()->dateTimeThisYear(),
         ];
     }
 }

@@ -16,11 +16,10 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            'name'           => fake()->name,
-            'lastname'       => fake()->lastName(),
-            'type_of_client' => 1,
-            'status'         => 1,
-            'comments'       => fake()->paragraph(),
+            'name'     => fake()->firstName(),
+            'lastname' => fake()->lastName(),
+            'city'     => fake()->city(),
+            'status'   => 1,
         ];
     }
 }

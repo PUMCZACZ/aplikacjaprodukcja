@@ -56,10 +56,9 @@ class CostService
 
     private function getPriceWithoutPackaging(Order $order): int
     {
-        if ($order->order_type === OrderTypeEnum::BIGBAG){
+        return 0;
+        if ($order->order_type === OrderTypeEnum::BIGBAG) {
             //
         }
-
-        ...
     }
 }
