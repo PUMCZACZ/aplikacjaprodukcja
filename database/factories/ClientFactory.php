@@ -18,7 +18,7 @@ class ClientFactory extends Factory
         return [
             'name'           => fake()->name,
             'lastname'       => fake()->lastName(),
-            'type_of_client' => 1,
+            'type_of_client' => 1123,
             'status'         => 1,
             'comments'       => fake()->paragraph(),
         ];
