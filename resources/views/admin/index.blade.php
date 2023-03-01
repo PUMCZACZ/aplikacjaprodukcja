@@ -1,7 +1,7 @@
 <x-nav.layout>
     <div class="flex">
         <x-admin.index-view value="{{ $setting->netto_price }}">Cena Netto</x-admin.index-view>
-        <x-admin.index-view name="brutto_price">Cena Brutto</x-admin.index-view>
+        <x-admin.index-view value="{{ $setting->brutto_price }}">Cena Brutto</x-admin.index-view>
     </div>
     <div class="flex">
         <x-admin.index-view name="bag_price">Cena Za Worek</x-admin.index-view>

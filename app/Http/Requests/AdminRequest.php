@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Requests;
 
+use App\Services\AdminService;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AdminRequest extends FormRequest
@@ -36,8 +37,14 @@ class AdminRequest extends FormRequest
 
     public function toData(): array
     {
+        $service = app()->make(AdminService::class);
+
         return [
             'netto_price'               => $this->input('netto_price'),
+            'brutto_price'              => $service->toBrutto(),
+            'bag_price'                 => $service->bagPackingCostPrice(),
+            'bigbag_price'              => $service->bigbagPackingCostPrice(),
+            'loose_price'              => $service->loosePackingCostPrice(),
             'bag_packing_cost_price'    => $this->input('bag_packing_cost_price'),
             'bigbag_packing_cost_price' => $this->input('bigbag_packing_cost_price'),
             'loose_packing_cost_price'  => $this->input('loose_packing_cost_price'),
