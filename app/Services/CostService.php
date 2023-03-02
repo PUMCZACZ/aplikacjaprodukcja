@@ -2,13 +2,16 @@
 
 namespace App\Services;
 
+use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use App\Money;
 use App\OrderTypeEnum;
+use mysql_xdevapi\Exception;
 
 class CostService
 {
     const BAG_COST_MULTIPLIER = 0.015;
+    const BIGBAG_COST_MULTIPLIER = 1000;
 
     public function getPackingCost(Order $order): int
     {
@@ -28,7 +31,7 @@ class CostService
     public function price(Order $order): int
     {
         return $this->getPriceWithoutPackaging($order)
-            + $this->getPackingCost($order);
+             + $this->getPackingCost($order);
     }
 
     private function packakingCostPerBag(): int
@@ -37,6 +40,11 @@ class CostService
         $bag_packaking_per_ton = config('prices.bag_packaking_per_ton');
 
         return Money::priceToCents(($netto + $bag_packaking_per_ton) * static::BAG_COST_MULTIPLIER);
+    }
+
+    private function packingCostPerBigBag(): int
+    {
+        throw new Exception('To be implemented');
     }
 
     private function getLooseCost(Order $order): int
@@ -51,14 +59,29 @@ class CostService
 
     private function getBigBagCost(Order $order): int
     {
-        throw new \Exception('Not implemented');
+        $netto = config('prices.netto');
+        $bigbag_packaking_per_ton = config('prices.bigbag_packaking_per_ton');
+
+        return Money::priceToCents((($netto / static::BIGBAG_COST_MULTIPLIER) * $order->weight) + ($order->quantity * $bigbag_packaking_per_ton));
     }
 
     private function getPriceWithoutPackaging(Order $order): int
     {
-        return 0;
-        if ($order->order_type === OrderTypeEnum::BIGBAG) {
-            //
+        if ($order->order_type === OrderTypeEnum::BAG)
+        {
+            return 0;
+            throw new \Exception('Not implemeted yet');
+        }
+
+        if ($order->order_type === OrderTypeEnum::BIGBAG)
+        {
+            return 0;
+            throw new \Exception('Not implemeted yet');
+        }
+
+        if ($order->order_type === OrderTypeEnum::LOOSE)
+        {
+            throw new \Exception('Not implemeted yet');
         }
     }
 }

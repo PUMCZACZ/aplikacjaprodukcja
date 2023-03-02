@@ -31,7 +31,7 @@
 
                         </x-form.field>
                         <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość</x-form.input>
-                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars(), )" required>Cena</x-form.input>
+{{--                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars(), )" required>Cena</x-form.input>--}}
                         <x-form.date-time name="deadline" placeholder="{{ $order->deadline }}" required>Termin Realizacji Zamówienia</x-form.date-time>
 
                         <x-form.button>Dodaj</x-form.button>

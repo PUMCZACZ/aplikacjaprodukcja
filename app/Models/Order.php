@@ -27,8 +27,6 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $abs = '';
-
     protected $guarded = [];
 
     protected $casts = [

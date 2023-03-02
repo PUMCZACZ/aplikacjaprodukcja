@@ -15,7 +15,7 @@ return new class() extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->string('order_type')->nullable();
-            $table->unsignedInteger('price')->change();
+            $table->unsignedInteger('price')->default(0)->change();
         });
     }
 
@@ -27,7 +27,8 @@ return new class() extends Migration
     public function down()
     {
         Schema::table('orders', function (Blueprint $table) {
-            //
+            $table->dropColumn('order_type');
+            $table->dropColumn('price');
         });
     }
 };

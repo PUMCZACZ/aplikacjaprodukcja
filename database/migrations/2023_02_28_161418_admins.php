@@ -25,6 +25,17 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::table('admins', function (Blueprint $table) {
+            $table->dropColumn('netto_price');
+            $table->dropColumn('brutto_price');
+            $table->dropColumn('bag_price');
+            $table->dropColumn('bigbag_price');
+            $table->dropColumn('loose_price');
+            $table->dropColumn('bag_packing_cost_price');
+            $table->dropColumn('bigbag_packing_cost_price');
+            $table->dropColumn('loose_packing_cost_price');
+            $table->dropColumn('created_at');
+            $table->dropColumn('updated_at');
+        });
     }
 };

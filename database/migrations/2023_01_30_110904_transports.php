@@ -31,6 +31,8 @@ return new class() extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transports');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->unsignedInteger('price')->default(0)->change();
+        });
     }
 };
