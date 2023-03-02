@@ -23,10 +23,10 @@ class MoneyHelperTest extends TestCase
     public function it_converts_float_to_cents()
     {
         // given
-
+        $float = 1.24;
         // when
-
+        $centsValue = Money::priceToCents($float);
         // then
-
+        $this->assertEquals(124, $centsValue);
     }
 }
