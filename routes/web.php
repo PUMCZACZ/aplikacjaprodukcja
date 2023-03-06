@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
@@ -7,6 +8,10 @@ use App\Http\Controllers\TransportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::get('/admin/create', [AdminController::class, 'create'])->name('admin/create');
+Route::post('/admin/create', [AdminController::class, 'store']);
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 Route::get('/client/create', [ClientController::class, 'create'])->name('client/create');

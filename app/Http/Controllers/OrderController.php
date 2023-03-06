@@ -23,7 +23,9 @@ class OrderController extends Controller
 
     public function store(OrderRequest $request)
     {
-        Order::create($request->toData());
+        /** @var Order $order */
+        $order = Order::create($request->toData());
+        $order->recalculatePrices();
 
         return redirect('/order');
     }
@@ -40,6 +42,7 @@ class OrderController extends Controller
         $attributes = $request->toData();
 
         $order->update($attributes);
+        $order->recalculatePrices();
 
         return redirect('/order');
     }

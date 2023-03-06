@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->timestamp('deadline')->nullable();
+            $table->unsignedInteger('weight')->nullable();
+            $table->unsignedInteger('packing_cost')->nullable();
+            $table->dropColumn('is_completed');
+            $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -22,7 +25,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('deadline');
+            $table->dropColumn('weight');
+            $table->dropColumn('packing_cost');
+            $table->boolean('is_completed')->default(false);
+            $table->dropColumn('completed_at');
         });
     }
 };

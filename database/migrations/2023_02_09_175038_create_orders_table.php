@@ -30,6 +30,14 @@ return new class() extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('id');
+            $table->dropColumn('client_id');
+            $table->dropColumn('quantity');
+            $table->dropColumn('price');
+            $table->dropColumn('is_completed');
+            $table->dropColumn('created_at');
+            $table->dropColumn('updated_at');
+        });
     }
 };
