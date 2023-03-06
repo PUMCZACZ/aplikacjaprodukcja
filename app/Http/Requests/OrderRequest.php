@@ -17,7 +17,7 @@ class OrderRequest extends FormRequest
         return [
             'client_id'  => ['required', 'numeric'],
             'order_type' => ['required'],
-//            'price'      => ['required', 'numeric', 'min:0.01'],
+            //            'price'      => ['required', 'numeric', 'min:0.01'],
             'quantity'   => ['required'],
             'deadline'   => ['required'],
             //'weight' => ['required']
@@ -46,7 +46,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'client_id'  => $this->input('client_id'),
-//            'price'      => $this->priceToCents(),
+            //            'price'      => $this->priceToCents(),
             'weight'     => $this->input('weight'),
             'quantity'   => $this->input('quantity'),
             'order_type' => $this->input('order_type'),

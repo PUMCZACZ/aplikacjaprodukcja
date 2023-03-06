@@ -15,5 +15,4 @@ return [
      * Price in PLN
      */
     'bigbag_packaking_per_ton' => 45,
-
 ];

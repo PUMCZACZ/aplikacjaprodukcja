@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Services;
 
 use App\Http\Requests\AdminRequest;
-use App\Models\Admin;
-use Illuminate\Contracts\Container\BindingResolutionException;
 
 class AdminService
 {
@@ -25,20 +22,20 @@ class AdminService
     {
         $request = app()->make(AdminRequest::class);
 
-        return (($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000 ) * 15;
+        return (($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000) * 15;
     }
 
     public function bigbagPackingCostPrice(): float
     {
         $request = app()->make(AdminRequest::class);
 
-        return (($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000 ); //TODO dodać za tysiac mnożenie przez wagę całkowitą bigbagów
+        return ($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000; //TODO dodać za tysiac mnożenie przez wagę całkowitą bigbagów
     }
 
     public function loosePackingCostPrice(): float
     {
         $request = app()->make(AdminRequest::class);
 
-        return (($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000 );
+        return ($request->input('netto_price') + $request->input('bag_packing_cost_price')) / 1000;
     }
 }

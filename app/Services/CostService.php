@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Services;
 
-use App\Http\Requests\OrderRequest;
 use App\Models\Order;
 use App\Money;
 use App\OrderTypeEnum;
@@ -67,20 +65,17 @@ class CostService
 
     private function getPriceWithoutPackaging(Order $order): int
     {
-        if ($order->order_type === OrderTypeEnum::BAG)
-        {
+        if ($order->order_type === OrderTypeEnum::BAG) {
             return 0;
             throw new \Exception('Not implemeted yet');
         }
 
-        if ($order->order_type === OrderTypeEnum::BIGBAG)
-        {
+        if ($order->order_type === OrderTypeEnum::BIGBAG) {
             return 0;
             throw new \Exception('Not implemeted yet');
         }
 
-        if ($order->order_type === OrderTypeEnum::LOOSE)
-        {
+        if ($order->order_type === OrderTypeEnum::LOOSE) {
             throw new \Exception('Not implemeted yet');
         }
     }
