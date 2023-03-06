@@ -8,25 +8,21 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('type_of_orders', function (Blueprint $table) {
-            $table->id();
-            $table->string('order_type');
-            $table->timestamps();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->timestamp('deadline')->nullable();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
-        //
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('deadline');
+        });
     }
 };

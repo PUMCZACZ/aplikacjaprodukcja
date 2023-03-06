@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+return new class() extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained()->onDelete('cascade');
-            $table->foreignId('type_of_order_id')->constrained();
             $table->unsignedInteger('quantity');
             $table->unsignedDouble('price');
             $table->boolean('is_completed')->default(0);
@@ -31,6 +30,14 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('id');
+            $table->dropColumn('client_id');
+            $table->dropColumn('quantity');
+            $table->dropColumn('price');
+            $table->dropColumn('is_completed');
+            $table->dropColumn('created_at');
+            $table->dropColumn('updated_at');
+        });
     }
 };

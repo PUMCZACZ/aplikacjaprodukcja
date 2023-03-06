@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -17,11 +16,10 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            'name' => fake()->name,
+            'name'     => fake()->firstName(),
             'lastname' => fake()->lastName(),
-            'type_of_client' => 1,
-            'status' => 1,
-            'comments' => fake()->paragraph(),
+            'city'     => fake()->city(),
+            'status'   => 1,
         ];
     }
 }

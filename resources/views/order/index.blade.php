@@ -7,25 +7,26 @@
                         <x-table.paragraph-head-section>Typ Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Ilość</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Cena</x-table.paragraph-head-section>
-                        <x-table.paragraph-head-section>Data Zakupu</x-table.paragraph-head-section>
+                        <x-table.paragraph-head-section>Data Złożenia Zamówienia</x-table.paragraph-head-section>
+                        <x-table.paragraph-head-section>Data Realiacji Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Zrealizowane</x-table.paragraph-head-section>
                         <x-table.ahref-head-section :href="route('order/create')">Dodaj Zamównienie</x-table.ahref-head-section>
                     </tr>
                 </thead>
                 @foreach($orders as $order)
-
                     <tbody>
                         <x-table.paragraph-body-section>{{ $order->clients->name . ' ' . $order->clients->lastname }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->typeOfOrders->order_type }}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->quantity . " szt"}}</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->price . " zł"}}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->order_type->translate() }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->quantity}} szt</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{  $order->priceToDolars() }} zł</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->deadline }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>
                             @if($order->is_completed == 0)
                                 Niezrealizowane
                             @else
                                 Zrealizowane
-                            @endif
+                            @endif›
                         </x-table.paragraph-body-section>
 
                         <x-table.edit-button href="/order/{{ $order->id }}/edit">Edycja</x-table.edit-button>

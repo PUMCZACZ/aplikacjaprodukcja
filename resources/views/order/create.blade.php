@@ -20,20 +20,23 @@
                                 </select>
                         </x-form.field>
 
-                        <x-form.field>
-                            <x-form.label>Typ Zamówienia</x-form.label>
-                                <select name="type_of_order_id" id="type_of_order_id" required>
-                                    @foreach($typeOfOrders as $typeOfOrder)
-                                        <option
-                                            value="{{ $typeOfOrder->id }}"
-                                            {{ old('type_of_order_id') == $typeOfOrder->id ? 'selected' : '' }}
-                                        >{{ucwords($typeOfOrder->order_type)}}</option>
+                        <div x-data="{ order_type: ''}" >
+                            <x-form.field>
+                                <x-form.label>Typ Zamówienia</x-form.label>
+                                <select x-model="order_type" name="order_type">
+                                    @foreach(\App\OrderTypeEnum::cases() as $type)
+                                        <option value="{{ $type->value }}">{{ $type->translate() }}</option>
                                     @endforeach
                                 </select>
-                        </x-form.field>
+                            </x-form.field>
 
-                        <x-form.input name="quantity" required>Ilość</x-form.input>
-                        <x-form.input name="price" required>Cena</x-form.input>
+                            <div x-show="order_type !== 'bag'">
+                                <x-form.input name="weight" type="number" min="1">Waga</x-form.input>
+                            </div>
+                        </div>
+{{--                        <x-form.input name="weight" type="number" min="1">Waga</x-form.input>--}}
+                        <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" min="{{ now()->format('d-m-Y') }}" required>Termin Realizacji Zamówienia</x-form.input>
 
                         <x-form.button>Dodaj</x-form.button>
 
@@ -43,5 +46,4 @@
             </main>
         </div>
     </section>
-
 </x-nav.layout>
