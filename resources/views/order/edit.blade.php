@@ -20,20 +20,18 @@
                             </select>
                         </x-form.field>
 
-                        <x-form.field>
-                            <x-form.label>Typ Zamówienia</x-form.label>
+                        <x-form.field>Typ Zamówienia</x-form.field>
+                        <select name="order_type">
+                            @foreach(\App\OrderTypeEnum::cases() as $type)
+                                <option value="{{ $type->value }}" {{ $order->order_type === $type ? 'selected' : ''}}>
+                                    {{ $type->translate() }}</option>
+                            @endforeach
+                        </select>
 
-                            <select name="order_type">
-                                @foreach(\App\OrderTypeEnum::cases() as $type)
-                                    <option value="{{ $type->value }}">{{ $type->translate() }}</option>
-                                @endforeach
-                            </select>
-
-                        </x-form.field>
+                        <x-form.input name="weight" type="number" min="1">Waga</x-form.input>
                         <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość</x-form.input>
-{{--                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars(), )" required>Cena</x-form.input>--}}
-                        <x-form.date-time name="deadline" placeholder="{{ $order->deadline }}" required>Termin Realizacji Zamówienia</x-form.date-time>
-
+                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars())" required>Cena</x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" :value="old('deadline', $order->deadline)" required>Termin Realizacji Zamówienia</x-form.input>
                         <x-form.button>Dodaj</x-form.button>
                     </form>
                 </div>

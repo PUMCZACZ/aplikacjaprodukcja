@@ -42,7 +42,7 @@ class OrderController extends Controller
         $attributes = $request->toData();
 
         $order->update($attributes);
-        $order->recalculatePrices();
+
 
         return redirect('/order');
     }

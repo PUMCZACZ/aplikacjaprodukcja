@@ -19,7 +19,6 @@
                         <x-table.paragraph-body-section>{{ $order->order_type->translate() }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->quantity}} szt</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{  $order->priceToDolars() }} zł</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{ $order->created_at }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->deadline }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>
                             @if($order->is_completed == 0)

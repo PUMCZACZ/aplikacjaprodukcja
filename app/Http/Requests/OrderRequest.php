@@ -17,18 +17,21 @@ class OrderRequest extends FormRequest
         return [
             'client_id'  => ['required', 'numeric'],
             'order_type' => ['required'],
-//            'price'      => ['required', 'numeric', 'min:0.01'],
-            'quantity'   => ['required'],
+            'quantity'   => ['required', 'numeric', 'min:1'],
             'deadline'   => ['required'],
-            //'weight' => ['required']
+            'price' => ['min:0.01', 'numeric']
         ];
     }
 
     public function messages(): array
     {
         return [
-            'price.min'     => 'wartość tylko dodatnia',
-            'price.numeric' => 'podaj numer',
+            'price.min'     => 'Wartość minimalna to 0,01 zł',
+            'price.numeric' => 'Wartość nie jest numerem',
+            'order_type.required' => 'To pole jest wymagane',
+            'quantity.required' => 'To pole jest wymagane',
+            'quantity.numeric' => 'Wartość nie jest numerem',
+            'quantity.min' => 'Minimalna ilość to jedna sztuka',
         ];
     }
 
@@ -46,7 +49,7 @@ class OrderRequest extends FormRequest
     {
         return [
             'client_id'  => $this->input('client_id'),
-//            'price'      => $this->priceToCents(),
+            'price'      => $this->priceToCents(),
             'weight'     => $this->input('weight'),
             'quantity'   => $this->input('quantity'),
             'order_type' => $this->input('order_type'),
