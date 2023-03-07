@@ -19,19 +19,19 @@ class OrderRequest extends FormRequest
             'order_type' => ['required'],
             'quantity'   => ['required', 'numeric', 'min:1'],
             'deadline'   => ['required'],
-            'price' => ['min:0.01', 'numeric']
+            'price'      => ['min:0.01', 'numeric'],
         ];
     }
 
     public function messages(): array
     {
         return [
-            'price.min'     => 'Wartość minimalna to 0,01 zł',
-            'price.numeric' => 'Wartość nie jest numerem',
+            'price.min'           => 'Wartość minimalna to 0,01 zł',
+            'price.numeric'       => 'Wartość nie jest numerem',
             'order_type.required' => 'To pole jest wymagane',
-            'quantity.required' => 'To pole jest wymagane',
-            'quantity.numeric' => 'Wartość nie jest numerem',
-            'quantity.min' => 'Minimalna ilość to jedna sztuka',
+            'quantity.required'   => 'To pole jest wymagane',
+            'quantity.numeric'    => 'Wartość nie jest numerem',
+            'quantity.min'        => 'Minimalna ilość to jedna sztuka',
         ];
     }
 

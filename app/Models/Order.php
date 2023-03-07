@@ -1,7 +1,6 @@
 <?php
 namespace App\Models;
 
-use App\Money;
 use App\OrderTypeEnum;
 use App\Services\CostService;
 use Carbon\Carbon;
@@ -20,7 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon        created_at
  * @property Carbon        deadline
  * @property int           admin_id
- *
  * @property float         packing_cost
  */
 class Order extends Model

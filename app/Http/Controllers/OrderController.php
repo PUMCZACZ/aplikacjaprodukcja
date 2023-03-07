@@ -43,7 +43,6 @@ class OrderController extends Controller
 
         $order->update($attributes);
 
-
         return redirect('/order');
     }
 
