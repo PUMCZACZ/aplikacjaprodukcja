@@ -38,11 +38,6 @@ class Order extends Model
         return $this->belongsTo(Client::class, 'client_id', 'id');
     }
 
-    public function priceToDolars(): float
-    {
-        return $this->price / 100;
-    }
-
     public function isCompleted(): bool
     {
         return $this->completed_at !== null;
