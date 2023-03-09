@@ -9,7 +9,7 @@ use mysql_xdevapi\Exception;
 class CostService
 {
     const BAG_COST_MULTIPLIER = 0.015;
-    const BIGBAG_COST_MULTIPLIER = 1000;
+    const BIGBAG_COST_MULTIPLIER = 0.001;
 
     public function getPackingCost(Order $order): int
     {
@@ -60,7 +60,7 @@ class CostService
         $netto = config('prices.netto');
         $bigbag_packaking_per_ton = config('prices.bigbag_packaking_per_ton');
 
-        return Money::priceToCents((($netto / static::BIGBAG_COST_MULTIPLIER) * $order->weight) + ($order->quantity * $bigbag_packaking_per_ton));
+        return Money::priceToCents((($netto * static::BIGBAG_COST_MULTIPLIER) * $order->weight) + ($order->quantity * $bigbag_packaking_per_ton));
     }
 
     private function getPriceWithoutPackaging(Order $order): int

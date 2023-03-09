@@ -15,7 +15,7 @@ Route::post('/admin/create', [AdminController::class, 'store']);
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 Route::get('/client/create', [ClientController::class, 'create'])->name('client/create');
-Route::post('/client/compose', [ClientController::class, 'store']);
+Route::post('/client/create', [ClientController::class, 'store']);
 Route::get('/client/{client:id}/edit', [ClientController::class, 'edit']);
 Route::patch('/client/edit/{client:id}', [ClientController::class, 'update']);
 Route::delete('/client/delete/{client:id}', [ClientController::class, 'destroy']);
