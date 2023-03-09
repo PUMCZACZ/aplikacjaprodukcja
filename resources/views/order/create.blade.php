@@ -20,23 +20,22 @@
                                 </select>
                         </x-form.field>
 
-                        <div x-data="{ order_type: ''}" >
+                        <div x-data="{ show_weight: ''}" >
                             <x-form.field>
                                 <x-form.label>Typ Zamówienia</x-form.label>
-                                <select x-model="order_type" name="order_type">
+                                <select x-model="show_weight" name="order_type">
                                     @foreach(\App\OrderTypeEnum::cases() as $type)
                                         <option value="{{ $type->value }}">{{ $type->translate() }}</option>
                                     @endforeach
                                 </select>
                             </x-form.field>
 
-                            <div x-show="order_type !== 'bag'">
+                            <div x-show="show_weight !== 'bag'">
                                 <x-form.input name="weight" type="number" min="1">Waga</x-form.input>
                             </div>
                         </div>
-{{--                        <x-form.input name="weight" type="number" min="1">Waga</x-form.input>--}}
                         <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>
-                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" min="{{ now()->format('d-m-Y') }}" required>Termin Realizacji Zamówienia</x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" required>Termin Realizacji Zamówienia</x-form.input>
 
                         <x-form.button>Dodaj</x-form.button>
 
