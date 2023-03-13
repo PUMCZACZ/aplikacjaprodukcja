@@ -24,6 +24,9 @@
                 </tbody>
             @endforeach
         </x-table.layout>
+        <div class="mt-6">
+            {{ $clients->links() }}
+        </div>
     </section>
 </x-nav.layout>
 

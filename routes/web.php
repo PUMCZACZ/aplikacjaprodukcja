@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransportController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('home');
@@ -29,3 +30,6 @@ Route::post('/order/create', [OrderController::class, 'store']);
 Route::get('/order/{order:id}/edit', [OrderController::class, 'edit']);
 Route::patch('/order/edit/{order:id}', [OrderController::class, 'update']);
 Route::delete('/order/delete/{order:id}', [OrderController::class, 'destroy']);
+
+
+Route::get('login',[UserController::class, 'index'])->name('login');

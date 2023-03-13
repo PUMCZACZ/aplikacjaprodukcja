@@ -3,8 +3,8 @@ namespace App;
 
 enum ClientTypeEnum: string
 {
-    case RETAILCLIENT = 'retailclient';
-    case WHOLESALECLIENT = 'wholesaleclient';
+    case RETAILCLIENT = 'retail client';
+    case WHOLESALECLIENT = 'wholesale client';
 
     public function translate(): string
     {
