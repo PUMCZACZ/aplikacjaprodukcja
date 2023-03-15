@@ -32,4 +32,5 @@ Route::patch('/order/edit/{order:id}', [OrderController::class, 'update']);
 Route::delete('/order/delete/{order:id}', [OrderController::class, 'destroy']);
 
 
-Route::get('login',[UserController::class, 'index'])->name('login');
+Route::get('/login',[UserController::class, 'create'])->middleware('guest');
+Route::post('/login', [UserController::class, 'store'])->middleware('guest');
