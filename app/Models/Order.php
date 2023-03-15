@@ -47,7 +47,6 @@ class Order extends Model
     public function priceToDolars()
     {
         return Money::centsToFloat($this->price);
-
     }
 
     public function recalculatePrices(): void

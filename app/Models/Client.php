@@ -35,6 +35,6 @@ class Client extends Model
 
     public function formatPhoneNumber(): string
     {
-        return preg_replace("/^1?(\d{3})(\d{3})(\d{3})$/", "$1-$2-$3", $this->phone_number);
+        return preg_replace("/^1?(\d{3})(\d{3})(\d{3})$/", '$1-$2-$3', $this->phone_number);
     }
 }
