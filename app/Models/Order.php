@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 
+use App\Money;
 use App\OrderTypeEnum;
 use App\Services\CostService;
 use Carbon\Carbon;
@@ -41,6 +42,11 @@ class Order extends Model
     public function isCompleted(): bool
     {
         return $this->completed_at !== null;
+    }
+
+    public function priceToDolars()
+    {
+        return Money::centsToFloat($this->price);
     }
 
     public function recalculatePrices(): void

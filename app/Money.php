@@ -8,7 +8,7 @@ class Money
         return floor($float * 100);
     }
 
-    public static function centsToFloat(int $cents): float
+    public static function centsToFloat(int $cents): string
     {
         return number_format($cents / 100, 2);
     }
