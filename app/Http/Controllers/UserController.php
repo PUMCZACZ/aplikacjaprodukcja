@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Money;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -27,5 +28,12 @@ class UserController extends Controller
         throw ValidationException::withMessages([
             'email' => 'Niepoprawny adres email lub hasło.'
         ]);
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect('/login');
     }
 }

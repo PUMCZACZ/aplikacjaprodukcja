@@ -17,7 +17,7 @@
                         <x-table.paragraph-body-section>{{ $order->clients->name . ' ' . $order->clients->lastname }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->order_type->translate() }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $order->quantity}} szt</x-table.paragraph-body-section>
-                        <x-table.paragraph-body-section>{{  $order->priceToDolars() }} zł</x-table.paragraph-body-section>
+                        <x-table.paragraph-body-section>{{ $order->priceToDolars() }} zł</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ Carbon\Carbon::parse($order->deadline)->locale('pl')->calendar() }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>
                             @if($order->is_completed == 0)
