@@ -30,6 +30,9 @@ Route::middleware([
     Route::get('/client/show/{client}', [ClientController::class, 'show']);
 
     Route::get('/transport', [TransportController::class, 'index'])->name('transport');
+    Route::get('transport/create', function () {
+        return 'ok';
+    })->name('transport.create');
 
     Route::prefix('/order')
         ->name('orders.')
