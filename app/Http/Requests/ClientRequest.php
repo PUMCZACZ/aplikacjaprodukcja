@@ -1,13 +1,18 @@
 <?php
 namespace App\Http\Requests;
 
+use App\Models\Client;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ClientRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        /** @var Client $client */
+        $client = $this->route('client');
+
+        return Auth::user()->can('update', $client);
     }
 
     public function rules(): array
