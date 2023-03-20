@@ -36,6 +36,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [UserController::class, 'create'])->middleware('guest')->name('login');
-    Route::post('/login', [UserController::class, 'store'])->middleware('guest');
+    Route::get('/login', [UserController::class, 'create'])->name('login');
+    Route::post('/login', [UserController::class, 'store']);
 });
