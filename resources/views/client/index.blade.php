@@ -5,7 +5,7 @@
 @endphp
 
 <x-nav.layout>
-    <section class="py-8 max-w-7xl mx-auto">
+    <section class="py-2 px-4 mx-auto">
         <x-table.layout>
             <thead>
                 <tr>

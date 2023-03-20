@@ -10,7 +10,7 @@ class OrderController extends Controller
     public function index()
     {
         return view('order.index', [
-            'orders' => Order::with('clients')->get(),
+            'orders' => Order::with('clients')->paginate(25),
         ]);
     }
 

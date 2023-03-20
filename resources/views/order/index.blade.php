@@ -1,5 +1,5 @@
 <x-nav.layout>
-    <section class="py-8 max-w-7xl mx-auto">
+    <section class="py-2 px-4 mx-auto">
         <x-table.layout>
                 <thead>
                     <tr>
@@ -32,6 +32,9 @@
                     </tbody>
                 @endforeach
         </x-table.layout>
+        <div class="mt-6">
+            {{ $orders->links() }}
+        </div>
     </section>
 </x-nav.layout>
 

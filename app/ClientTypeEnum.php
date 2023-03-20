@@ -9,8 +9,8 @@ enum ClientTypeEnum: string
     public function translate(): string
     {
         return match ($this) {
-            self::RETAILCLIENT      => 'klient detaliczny',
-            self::WHOLESALECLIENT   => 'klient hurtowy',
+            self::RETAILCLIENT      => 'Klient Detaliczny',
+            self::WHOLESALECLIENT   => 'Klient Hurtowy',
         };
     }
 }
