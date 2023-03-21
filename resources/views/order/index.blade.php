@@ -9,7 +9,7 @@
                         <x-table.paragraph-head-section>Cena</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Data Realiacji Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Zrealizowane</x-table.paragraph-head-section>
-                        <x-table.ahref-head-section :href="route('order/create')">Dodaj Zamównienie</x-table.ahref-head-section>
+                        <x-table.ahref-head-section :href="route('orders.create')">Dodaj Zamównienie</x-table.ahref-head-section>
                     </tr>
                 </thead>
                 @foreach($orders as $order)

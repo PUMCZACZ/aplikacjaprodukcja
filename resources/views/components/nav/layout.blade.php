@@ -25,8 +25,8 @@
                             <x-nav.link href="{{ route('client') }}"
                                         :active="request()->is('client')">Klient</x-nav.link>
 
-                            <x-nav.link href="{{ route('order') }}"
-                                        :active="request()->is('order')">Zamówienia</x-nav.link>
+                            <x-nav.link href="{{ route('orders.index') }}"
+                                        :active="request()->is('orders.index')">Zamówienia</x-nav.link>
 
                             <x-nav.link href="{{ route('transport') }}"
                                         :active="request()->is('transport')">Transport</x-nav.link>
