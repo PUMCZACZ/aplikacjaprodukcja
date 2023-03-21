@@ -18,7 +18,7 @@ return new class() extends Migration
             $table->string('slug');
             $table->string('name_of_company');
             $table->string('type_of_product');
-            $table->date('delivered_at');
+            $table->timestamp('delivered_at');
             $table->unsignedInteger('product_amount');
             $table->double('product_price');
         });

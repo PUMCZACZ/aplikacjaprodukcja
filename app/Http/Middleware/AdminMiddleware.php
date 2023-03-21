@@ -13,8 +13,8 @@ class AdminMiddleware
     {
         /** @var User $user */
         $user = Auth::user();
-        if ($user->cannot('admin')) {
-            throw new AuthorizationException('spadaj');
+        if ($user->can('admin')) {
+            throw new AuthorizationException();
         }
 
         return $next($request);

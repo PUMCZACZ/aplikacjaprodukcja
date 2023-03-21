@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::table('transports', function (Blueprint $table) {
             $table->dropColumn('slug');
+            $table->unsignedInteger('product_price')->change()->nullable();
+            $table->string('tag')->nullable();
+            $table->timestamp('completed_at')->nullable();
         });
     }
 
@@ -23,6 +26,9 @@ return new class extends Migration
     {
         Schema::table('transports', function (Blueprint $table) {
             $table->string('slug');
+            $table->dropColumn('product_price');
+            $table->dropColumn('tag');
+            $table->dropColumn('completed_at');
         });
     }
 };

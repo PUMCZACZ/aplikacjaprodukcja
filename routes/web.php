@@ -11,8 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([
     'auth',
-    AdminMiddleware::class,
-])->group(function () {
+    ])->group(function () {
     Route::post('/logout', [UserController::class, 'destroy']);
 
     Route::get('/', [DashboardController::class, 'index'])->name('home');
@@ -30,9 +29,6 @@ Route::middleware([
     Route::get('/client/show/{client}', [ClientController::class, 'show']);
 
     Route::get('/transport', [TransportController::class, 'index'])->name('transport');
-    Route::get('transport/create', function () {
-        return 'ok';
-    })->name('transport.create');
 
     Route::prefix('/order')
         ->name('orders.')

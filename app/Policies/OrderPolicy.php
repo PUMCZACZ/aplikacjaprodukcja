@@ -16,9 +16,4 @@ class OrderPolicy
     {
         return true;
     }
-
-    public function super(User $user, Order $order): bool
-    {
-        return fake()->boolean;
-    }
 }
