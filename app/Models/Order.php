@@ -44,7 +44,7 @@ class Order extends Model
         return $this->completed_at !== null;
     }
 
-    public function priceToDolars()
+    public function priceToDolars(): string
     {
         return Money::centsToFloat($this->price);
     }

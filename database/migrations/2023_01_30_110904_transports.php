@@ -31,8 +31,13 @@ return new class() extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            $table->unsignedInteger('price')->default(0)->change();
+        Schema::table('transports', function (Blueprint $table) {
+            $table->dropColumn('slug');
+            $table->dropColumn('name_of_company');
+            $table->dropColumn('type_of_product');
+            $table->dropColumn('delivered_at');
+            $table->dropColumn('product_amount');
+            $table->dropColumn('product_price');
         });
     }
 };

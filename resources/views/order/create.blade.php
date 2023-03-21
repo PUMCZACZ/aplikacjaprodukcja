@@ -10,7 +10,10 @@
                         @csrf
                         <x-form.field>
                             <x-form.label>Klient</x-form.label>
-                                <select name="client_id" id="client_id" required>
+                                <select name="client_id"
+                                        id="client_id"
+                                        class="bg-gray-50 border border-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        required>
                                     @foreach($clients as $client)
                                         <option
                                             value="{{ $client->id }}"
@@ -23,7 +26,10 @@
                         <div x-data="{ show_weight: ''}" >
                             <x-form.field>
                                 <x-form.label>Typ Zamówienia</x-form.label>
-                                <select x-model="show_weight" name="order_type">
+                                <select x-model="show_weight"
+                                        name="order_type"
+                                        class="bg-gray-50 border border-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                >
                                     @foreach(\App\OrderTypeEnum::cases() as $type)
                                         <option value="{{ $type->value }}">{{ $type->translate() }}</option>
                                     @endforeach
