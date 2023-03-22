@@ -26,22 +26,20 @@
                             </x-nav.link>
 
                             <x-nav.link href="{{ route('clients.index') }}"
-                                        :active="request()->is('clients.index')">Klient
+                                        :active="request()->is('client')">Klient
                             </x-nav.link>
 
                             <x-nav.link href="{{ route('orders.index') }}"
-                                        :active="request()->is('orders.index')">Zamówienia
+                                        :active="request()->is('order')">Zamówienia
                             </x-nav.link>
 
-                            <x-nav.link href="{{ route('transport') }}"
+                            <x-nav.link href="{{ route('transports.index') }}"
                                         :active="request()->is('transport')">Transport
                             </x-nav.link>
 
                         </div>
                     </div>
                 </div>
-
-
 
                 <div x-data="{open: false}" class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
