@@ -3,12 +3,13 @@ namespace App\Http\Requests;
 
 use App\Services\AdminService;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class AdminRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        return Gate::check('admin');
     }
 
     public function rules(): array

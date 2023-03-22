@@ -6,7 +6,7 @@
         <div class="flex">
             <main class="flex-1">
                 <div class="border border-gray-300 p-6 rounded-xl">
-                    <form method="POST" action="/order/edit/{{ $order->id }}">
+                    <form method="POST" action="{{ route('orders.update', $order->id)}}">
                         @csrf
                         @method('PATCH')
                         <x-form.field>
@@ -23,15 +23,28 @@
                             </select>
                         </x-form.field>
 
-                        <x-form.field>Typ Zamówienia</x-form.field>
-                        <select name="order_type">
-                            @foreach(\App\OrderTypeEnum::cases() as $type)
-                                <option value="{{ $type->value }}" {{ $order->order_type === $type ? 'selected' : ''}}>
-                                    {{ $type->translate() }}</option>
-                            @endforeach
-                        </select>
+                        <div x-data="{ show_weight: ''}" >
+                            <x-form.field>
+                                <x-form.label>Typ Zamówienia</x-form.label>
+                                <select x-model="show_weight"
+                                        name="order_type"
+                                        class="bg-gray-50 border border-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                >
+                                    @foreach(\App\OrderTypeEnum::cases() as $type)
+                                        <option value="{{ $type->value }}">{{ $type->translate() }}</option>
+                                    @endforeach
+                                </select>
+                            </x-form.field>
 
-                        <x-form.input name="weight" type="number" min="1">Waga</x-form.input>
+                            <div x-show="show_weight !== 'bag'">
+                                <x-form.input name="weight"
+                                              type="number"
+                                              min="1"
+                                              :value="old('weight', $order->weight)"
+                                >Waga</x-form.input>
+                            </div>
+                        </div>
+
                         <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość</x-form.input>
                         <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars())" required>Cena</x-form.input>
                         <x-form.input name="deadline" type="datetime-local" :value="old('deadline', $order->deadline)" required>Termin Realizacji Zamówienia</x-form.input>

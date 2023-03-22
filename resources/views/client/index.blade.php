@@ -16,14 +16,14 @@
                     <x-table.paragraph-head-section>Numer Telefonu</x-table.paragraph-head-section>
                     <x-table.paragraph-head-section>Typ Klienta</x-table.paragraph-head-section>
                     <x-table.paragraph-head-section>Nazwa Firmy</x-table.paragraph-head-section>
-                    <x-table.ahref-head-section :href="route('client/create')">Dodaj Klienta</x-table.ahref-head-section>
+                    <x-table.ahref-head-section :href="route('clients.create')">Dodaj Klienta</x-table.ahref-head-section>
                 </tr>
             </thead>
 
             @foreach($clients as $client)
                 <tbody>
                     <tr>
-                        <x-table.ahref-body-section href="/client/show/{{ $client->id }}">{{ $client->name}}</x-table.ahref-body-section>
+                        <x-table.ahref-body-section :href="route('clients.show', $client->id)">{{ $client->name}}</x-table.ahref-body-section>
                         <x-table.paragraph-body-section>{{ $client->lastname }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $client->city }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ $client->status }}</x-table.paragraph-body-section>
@@ -35,8 +35,8 @@
                             @endif
                         </x-table.paragraph-body-section>
 
-                        <x-table.edit-button href="/client/{{ $client->id }}/edit">Edycja</x-table.edit-button>
-                        <x-table.delete-button action="/client/delete/{{ $client->id }}">Usuń</x-table.delete-button>
+                        <x-table.edit-button :href="route('clients.edit', $client->id)">Edycja</x-table.edit-button>
+                        <x-table.delete-button :action="route('clients.destroy', $client->id)">Usuń</x-table.delete-button>
                     </tr>
                 </tbody>
             @endforeach

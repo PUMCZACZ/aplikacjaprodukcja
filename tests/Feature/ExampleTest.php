@@ -55,7 +55,7 @@ class ExampleTest extends TestCase
 
 //        $this->assertDatabaseCount('orders', $count+1);
 
-        $this->assertEquals($count+1, Order::query()->count());
+        $this->assertEquals($count + 1, Order::query()->count());
 
         // when
 //        $this->assertEquals(3, $order->weight);

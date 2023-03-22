@@ -6,7 +6,7 @@
         <div class="flex">
             <main class="flex-1">
                 <div class="border border-gray-300 p-6 rounded-xl">
-                    <form method="POST" action="/client/create">
+                    <form method="POST" action="{{ route('clients.store') }}">
                         @csrf
 
                         <div x-data="{show_client_type: ''}">

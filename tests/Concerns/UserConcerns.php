@@ -13,7 +13,7 @@ trait UserConcerns
     public function createAdmin(array $attributes = []): User
     {
         return User::factory()->create([
-                'is_admin' => true,
-            ] + $attributes);
+            'is_admin' => true,
+        ] + $attributes);
     }
 }

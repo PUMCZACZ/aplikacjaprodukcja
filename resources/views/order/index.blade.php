@@ -3,7 +3,7 @@
         <x-table.layout>
                 <thead>
                     <tr>
-                        <x-table.paragraph-head-section>Imię Klienta</x-table.paragraph-head-section>
+                        <x-table.paragraph-head-section>Imię i Nazwisko</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Typ Zamówienia</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Ilość</x-table.paragraph-head-section>
                         <x-table.paragraph-head-section>Cena</x-table.paragraph-head-section>
@@ -27,8 +27,8 @@
                             @endif›
                         </x-table.paragraph-body-section>
 
-                        <x-table.edit-button href="/order/{{ $order->id }}/edit">Edycja</x-table.edit-button>
-                        <x-table.delete-button action="/order/delete/{{ $order->id }}">Usuń</x-table.delete-button>
+                        <x-table.edit-button :href="route('orders.edit', $order->id)">Edycja</x-table.edit-button>
+                        <x-table.delete-button :action="route('orders.destroy', $order->id)">Usuń</x-table.delete-button>
                     </tbody>
                 @endforeach
         </x-table.layout>

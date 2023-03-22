@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Policies;
 
 use App\Models\Client;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ClientPolicy
 {
-
     /**
      * Determine whether the user can view the model.
      */
@@ -40,5 +37,4 @@ class ClientPolicy
     {
         //
     }
-
 }
