@@ -65,7 +65,7 @@ Route::middleware([
 
 Route::middleware('guest')->group(function () {
     Route::prefix('/login')
-        ->name('guests')
+        ->name('guests.')
         ->group(function () {
             Route::get('/', [UserController::class, 'create'])->name('index');
             Route::post('/', [UserController::class, 'store'])->name('store');

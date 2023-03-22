@@ -21,6 +21,7 @@ return new class() extends Migration
             $table->timestamp('delivered_at');
             $table->unsignedInteger('product_amount');
             $table->double('product_price');
+            $table->timestamps();
         });
     }
 

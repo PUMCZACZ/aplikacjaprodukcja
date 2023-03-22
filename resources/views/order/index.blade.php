@@ -1,3 +1,8 @@
+@php
+    /**
+    * @var \App\Models\Order $order
+    */
+@endphp
 <x-nav.layout>
     <section class="py-2 px-4 mx-auto">
         <x-table.layout>
