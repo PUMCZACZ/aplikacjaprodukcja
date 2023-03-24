@@ -24,4 +24,11 @@ class TransportController extends Controller
 
         return redirect('/transport');
     }
+
+    public function edit(Transport $transport)
+    {
+        return view('transport.edit',[
+            'transport' => $transport,
+        ]);
+    }
 }

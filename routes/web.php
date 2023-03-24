@@ -39,16 +39,15 @@ Route::middleware([
             Route::get('/show/{client}', [ClientController::class, 'show'])->name('show');
         });
 
-    Route::prefix('transport')
+    Route::prefix('/transport')
         ->name('transports.')
         ->group(function () {
             Route::get('/', [TransportController::class, 'index'])->name('index');
             Route::get('/create', [TransportController::class, 'create'])->name('create');
             Route::post('/', [TransportController::class, 'store'])->name('store');
-            Route::get('/{client}', [TransportController::class, 'edit'])->name('edit');
-            Route::post('/{client}', [TransportController::class, 'update'])->name('update');
-            Route::delete('/{client}', [TransportController::class, 'destroy'])->name('destroy');
-            Route::get('/show/{client}', [TransportController::class, 'show'])->name('show');
+            Route::get('/{transport}', [TransportController::class, 'edit'])->name('edit');
+            Route::post('/{transport}', [TransportController::class, 'update'])->name('update');
+            Route::delete('/{transport}', [TransportController::class, 'destroy'])->name('destroy');
         });
 
     Route::prefix('/order')
