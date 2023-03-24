@@ -2,6 +2,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Client;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,10 +10,7 @@ class ClientRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        /** @var Client $client */
-        $client = $this->route('client');
-
-        return Auth::user()->can('update', $client);
+        return \Illuminate\Support\Facades\Gate::check('admin');
     }
 
     public function rules(): array

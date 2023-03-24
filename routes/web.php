@@ -14,7 +14,7 @@ Route::middleware([
     Route::get('/', [DashboardController::class, 'index'])->name('home');
 
     Route::prefix('/logout')
-        ->name('guests')
+        ->name('guests.')
         ->group(function () {
             Route::post('/logout', [UserController::class, 'destroy'])->name('destroy');
         });
