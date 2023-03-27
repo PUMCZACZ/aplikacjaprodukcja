@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -19,10 +18,10 @@ class TransportFactory extends Factory
         return [
             'name_of_company' => fake()->company(),
             'type_of_product' => fake()->sentence(),
-            'delivered_at' => fake()->dateTimeThisYear(),
-            'product_amount' => fake()->numberBetween(1, 10000),
-            'tag' => fake()->sentence(),
-            'completed_at' => fake()->dateTimeThisMonth(),
+            'delivered_at'    => fake()->dateTimeThisYear(),
+            'product_amount'  => fake()->numberBetween(1, 10000),
+            'tag'             => fake()->sentence(),
+            'completed_at'    => fake()->dateTimeThisMonth(),
         ];
     }
 }

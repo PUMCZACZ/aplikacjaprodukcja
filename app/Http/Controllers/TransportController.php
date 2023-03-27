@@ -2,14 +2,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TransportRequest;
-use App\Models\Order;
 use App\Models\Transport;
 
 class TransportController extends Controller
 {
     public function index()
     {
-        return view('transport.index',[
+        return view('transport.index', [
             'transports' => Transport::all(),
         ]);
     }
@@ -28,12 +27,12 @@ class TransportController extends Controller
 
     public function edit(Transport $transport)
     {
-        return view('transport.edit',[
+        return view('transport.edit', [
             'transport' => $transport,
         ]);
     }
 
-    public function update(TransportRequest $request, Transport $transport )
+    public function update(TransportRequest $request, Transport $transport)
     {
         $attributes = $request->toData();
 

@@ -1,10 +1,7 @@
 <?php
 namespace App\Http\Requests;
 
-use App\Models\Client;
-use Illuminate\Auth\Access\Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class ClientRequest extends FormRequest
 {

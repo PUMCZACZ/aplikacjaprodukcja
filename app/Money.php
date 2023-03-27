@@ -14,6 +14,6 @@ class Money
             return 0;
         }
 
-        return number_format($cents / 100, 2, ".", ".");
+        return number_format($cents / 100, 2, '.', '.');
     }
 }
