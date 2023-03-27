@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TransportRequest;
+use App\Models\Order;
 use App\Models\Transport;
 
 class TransportController extends Controller
@@ -22,7 +23,7 @@ class TransportController extends Controller
     {
         Transport::create($request->toData());
 
-        return redirect('/transport');
+        return redirect(route('transports.index'));
     }
 
     public function edit(Transport $transport)
@@ -30,5 +31,21 @@ class TransportController extends Controller
         return view('transport.edit',[
             'transport' => $transport,
         ]);
+    }
+
+    public function update(TransportRequest $request, Transport $transport )
+    {
+        $attributes = $request->toData();
+
+        $transport->update($attributes);
+
+        return redirect(route('transports.index'));
+    }
+
+    public function destroy(Transport $transport)
+    {
+        $transport->delete();
+
+        return redirect(route('transports.index'));
     }
 }

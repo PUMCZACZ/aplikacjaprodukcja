@@ -22,7 +22,7 @@ class ClientController extends Controller
     {
         Client::create($request->toData());
 
-        return redirect('/client');
+        return redirect(route('clients.index'));
     }
 
     public function show($id)
@@ -43,13 +43,13 @@ class ClientController extends Controller
 
         $client->update($attributes);
 
-        return redirect('/client');
+        return redirect(route('clients.index'));
     }
 
     public function destroy(Client $client)
     {
         $client->delete();
 
-        return redirect('/client');
+        return redirect(route('clients.index'));
     }
 }

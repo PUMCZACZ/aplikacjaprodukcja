@@ -27,7 +27,7 @@ class OrderController extends Controller
         $order = Order::create($request->toData());
         $order->recalculatePrices();
 
-        return redirect('/order');
+        return redirect(route('orders.index'));
     }
 
     public function edit(Order $order)
@@ -43,13 +43,13 @@ class OrderController extends Controller
 
         $order->update($attributes);
 
-        return redirect('/order');
+        return redirect(route('orders.index'));
     }
 
     public function destroy(Order $order)
     {
         $order->delete();
 
-        return redirect('/order');
+        return redirect(route('orders.index'));
     }
 }

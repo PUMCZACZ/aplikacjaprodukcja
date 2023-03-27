@@ -16,19 +16,19 @@
                 <x-table.ahref-head-section :href="route('transports.create')">Dodaj Transport</x-table.ahref-head-section>
             </tr>
         </thead>
-        <tbody>
         @foreach($transports as $transport)
+        <tbody>
             <x-table.paragraph-body-section>{{ $transport->name_of_company }}</x-table.paragraph-body-section>
             <x-table.paragraph-body-section>{{ $transport->type_of_product }}</x-table.paragraph-body-section>
-            <x-table.paragraph-body-section>{{ $transport->product_amount }}</x-table.paragraph-body-section>
-            <x-table.paragraph-body-section>{{ $transport->product_price }}</x-table.paragraph-body-section>
-            <x-table.paragraph-body-section>{{ $transport->delivered_at }}</x-table.paragraph-body-section>
+            <x-table.paragraph-body-section>{{ $transport->product_amount }} szt</x-table.paragraph-body-section>
+            <x-table.paragraph-body-section>{{ $transport->product_price }} zł</x-table.paragraph-body-section>
+            <x-table.paragraph-body-section>{{ Carbon\Carbon::parse($transport->delivered_at)->locale('pl')->calendar() }}</x-table.paragraph-body-section>
             <x-table.paragraph-body-section>{{ $transport->completed_at }}</x-table.paragraph-body-section>
 
             <x-table.edit-button :href="route('transports.edit', $transport->id)">Edycja</x-table.edit-button>
             <x-table.delete-button :action="route('transports.destroy', $transport->id)">Usuń</x-table.delete-button>
-        @endforeach
         </tbody>
+        @endforeach
     </x-table.layout>
 </x-nav.layout>
 

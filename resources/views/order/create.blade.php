@@ -37,7 +37,7 @@
                             </x-form.field>
 
                             <div x-show="show_weight !== 'bag'">
-                                <x-form.input name="weight" type="number" min="1">Waga</x-form.input>
+                                <x-form.input name="weight" type="number" min="1">Waga [kg]</x-form.input>
                             </div>
                         </div>
                         <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>

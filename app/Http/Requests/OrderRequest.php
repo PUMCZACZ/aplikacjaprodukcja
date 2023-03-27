@@ -38,7 +38,7 @@ class OrderRequest extends FormRequest
 
     public function priceToCents(): int
     {
-        return Money::priceToCents($this->input('price', 0));
+        return Money::priceToCents($this->input('price'), 0);
     }
 
     public function deadlineCarbon(): Carbon

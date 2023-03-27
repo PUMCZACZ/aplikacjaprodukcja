@@ -8,7 +8,7 @@
                 <div class="border border-gray-300 p-6 rounded-xl">
                     <form method="POST" action="{{ route('clients.update', $client->id) }}">
                         @csrf
-                        @method('PATCH')
+
                         <div x-data="{show_client_type: ''}">
                             <x-form.field>
                                 <x-form.label>Typ Klienta</x-form.label>

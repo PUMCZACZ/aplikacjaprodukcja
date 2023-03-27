@@ -13,7 +13,6 @@
                 <div class="border border-gray-300 p-6 rounded-xl">
                     <form method="POST" action="{{ route('transports.update', $transport->id) }}">
                         @csrf
-                        @method('PATCH')
 
                         <x-form.input name="name_of_company" :value="old('name_of_company', $transport->name_of_company)">Nazwa Firmy</x-form.input>
                         <x-form.input name="type_of_product" :value="old('type_of_product', $transport->type_of_product)">Typ Produktu</x-form.input>

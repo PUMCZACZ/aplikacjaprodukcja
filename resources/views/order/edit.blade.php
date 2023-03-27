@@ -8,7 +8,7 @@
                 <div class="border border-gray-300 p-6 rounded-xl">
                     <form method="POST" action="{{ route('orders.update', $order->id)}}">
                         @csrf
-                        @method('PATCH')
+
                         <x-form.field>
                             <x-form.label>Klient</x-form.label>
                             <select name="client_id"
@@ -41,7 +41,8 @@
                                               type="number"
                                               min="1"
                                               :value="old('weight', $order->weight)"
-                                >Waga</x-form.input>
+                                >Waga [kg]
+                                </x-form.input>
                             </div>
                         </div>
 
