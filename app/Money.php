@@ -13,7 +13,6 @@ class Money
         if ($cents === null) {
             return 0;
         }
-
         return number_format($cents / 100, 2, '.', '.');
     }
 }
