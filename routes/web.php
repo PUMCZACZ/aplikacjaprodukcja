@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransportController;
@@ -59,6 +60,17 @@ Route::middleware([
             Route::get('/{order}', [OrderController::class, 'edit'])->name('edit');
             Route::post('/{order}', [OrderController::class, 'update'])->name('update');
             Route::delete('/{order}', [OrderController::class, 'destroy'])->name('destroy');
+        });
+
+    Route::prefix('/company')
+        ->name('companies.')
+        ->group(function () {
+            Route::get('/', [CompanyController::class, 'index'])->name('index');
+            Route::get('/create', [CompanyController::class, 'create'])->name('create');
+            Route::post('/', [CompanyController::class, 'store'])->name('store');
+            Route::get('/{company}', [CompanyController::class, 'edit'])->name('edit');
+            Route::post('/{company}', [CompanyController::class, 'update'])->name('update');
+            Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('destroy');
         });
 });
 
