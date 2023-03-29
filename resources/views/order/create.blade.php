@@ -10,16 +10,16 @@
                         @csrf
                         <x-form.field>
                             <x-form.label>Klient</x-form.label>
-                                <select name="client_id"
-                                        id="client_id"
-                                        class="bg-gray-50 border border-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        required>
-                                    @foreach($clients as $client)
-                                        <option
-                                            value="{{ $client->id }}"
-                                            {{ old('client_id') == $client->id ? 'selected' : '' }}
-                                        >{{ ucwords($client->name . ' ' . $client->lastname)}}</option>
-                                    @endforeach
+                            <select name="client_id"
+                                    id="client_id"
+                                    class="client"
+                                    required>
+                                @foreach($clients as $client)
+                                    <option
+                                        value="{{ $client->id }}"
+                                        {{ old('client_id') == $client->id ? 'selected' : '' }}
+                                    >{{ ucwords($client->name . ' ' . $client->lastname)}}</option>
+                                @endforeach
                                 </select>
                         </x-form.field>
 
@@ -51,4 +51,10 @@
             </main>
         </div>
     </section>
+    <script>
+        $(document).ready(function() {
+            $('.client').select2();
+        });
+    </script>
 </x-nav.layout>
+
