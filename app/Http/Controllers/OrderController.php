@@ -58,6 +58,8 @@ class OrderController extends Controller
     {
         $repository->confirm($order);
 
+        flash('Zamówienie zostało zatwierdzone');
+
         return back();
     }
 }

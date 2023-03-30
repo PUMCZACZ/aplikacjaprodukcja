@@ -7,7 +7,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
-use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([
@@ -87,7 +86,7 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/test', function () {
 
-    event(new \App\Events\OrderWasCompletedEvent(Order::first()));
+    flash('Jakaś informacja', 'error');
 
-    return 'ok';
+    return redirect(route('home'));
 });
