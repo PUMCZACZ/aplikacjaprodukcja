@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TransportController;
 use App\Http\Controllers\UserController;
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([
@@ -58,6 +59,7 @@ Route::middleware([
             Route::get('/create', [OrderController::class, 'create'])->name('create');
             Route::post('/', [OrderController::class, 'store'])->name('store');
             Route::get('/{order}', [OrderController::class, 'edit'])->name('edit');
+            Route::get('/{order}/confirm', [OrderController::class, 'confirm'])->name('confirm');
             Route::post('/{order}', [OrderController::class, 'update'])->name('update');
             Route::delete('/{order}', [OrderController::class, 'destroy'])->name('destroy');
         });
@@ -81,4 +83,11 @@ Route::middleware('guest')->group(function () {
             Route::get('/', [UserController::class, 'create'])->name('index');
             Route::post('/', [UserController::class, 'store'])->name('store');
         });
+});
+
+Route::get('/test', function () {
+
+    event(new \App\Events\OrderWasCompletedEvent(Order::first()));
+
+    return 'ok';
 });

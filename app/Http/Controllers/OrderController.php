@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OrderRequest;
 use App\Models\Client;
 use App\Models\Order;
+use App\Repositories\OrdersRepository;
 
 class OrderController extends Controller
 {
@@ -51,5 +52,12 @@ class OrderController extends Controller
         $order->delete();
 
         return redirect(route('orders.index'));
+    }
+
+    public function confirm(Order $order, OrdersRepository $repository)
+    {
+        $repository->confirm($order);
+
+        return back();
     }
 }

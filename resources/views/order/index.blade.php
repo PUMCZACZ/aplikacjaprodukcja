@@ -25,13 +25,14 @@
                         <x-table.paragraph-body-section>{{ $order->priceToDolars() }} zł</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>{{ Carbon\Carbon::parse($order->deadline)->locale('pl')->calendar() }}</x-table.paragraph-body-section>
                         <x-table.paragraph-body-section>
-                            @if($order->is_completed == 0)
-                                Niezrealizowane
-                            @else
+                            @if($order->isCompleted())
                                 Zrealizowane
+                            @else
+                                Niezrealizowane
                             @endif›
                         </x-table.paragraph-body-section>
 
+                        <x-table.edit-button :href="route('orders.confirm', $order->id)">Zatwierdź</x-table.edit-button>
                         <x-table.edit-button :href="route('orders.edit', $order->id)">Edycja</x-table.edit-button>
                         <x-table.delete-button :action="route('orders.destroy', $order->id)">Usuń</x-table.delete-button>
                     </tbody>
