@@ -58,6 +58,7 @@ Route::middleware([
             Route::get('/create', [OrderController::class, 'create'])->name('create');
             Route::post('/', [OrderController::class, 'store'])->name('store');
             Route::get('/{order}', [OrderController::class, 'edit'])->name('edit');
+            Route::get('/{order}/confirm', [OrderController::class, 'confirm'])->name('confirm');
             Route::post('/{order}', [OrderController::class, 'update'])->name('update');
             Route::delete('/{order}', [OrderController::class, 'destroy'])->name('destroy');
         });
@@ -81,4 +82,11 @@ Route::middleware('guest')->group(function () {
             Route::get('/', [UserController::class, 'create'])->name('index');
             Route::post('/', [UserController::class, 'store'])->name('store');
         });
+});
+
+Route::get('/test', function () {
+
+    flash('Jakaś informacja', 'error');
+
+    return redirect(route('home'));
 });
