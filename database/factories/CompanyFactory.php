@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Factories;
 
 use App\CompanyTagEnum;
@@ -19,8 +18,8 @@ class CompanyFactory extends Factory
     {
         return [
             'name_of_company' => fake()->company(),
-            'tag' => CompanyTagEnum::RAWMATERIALSUPLIER,
-            'phone' => fake()->number()
+            'tag'             => CompanyTagEnum::RAWMATERIALSUPLIER,
+            'phone'           => fake()->number(),
         ];
     }
 }

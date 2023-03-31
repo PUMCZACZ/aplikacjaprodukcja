@@ -17,12 +17,12 @@ class ClientFactory extends Factory
     public function definition()
     {
         return [
-            'name'     => fake()->firstName(),
-            'lastname' => fake()->lastName(),
-            'city'     => fake()->city(),
+            'name'           => fake()->firstName(),
+            'lastname'       => fake()->lastName(),
+            'city'           => fake()->city(),
             'type_of_client' => ClientTypeEnum::RETAILCLIENT,
-            'phone_number' => fake()->number(),
-            'status'   => 1,
+            'phone_number'   => fake()->number(),
+            'status'         => 1,
         ];
     }
 }
