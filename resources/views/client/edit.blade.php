@@ -26,9 +26,13 @@
                             </div>
                         </div>
                         <x-form.input name="name" :value="old('name', $client->name)" required>Imię</x-form.input>
-                        <x-form.input name="lastname" :value="old('lastname', $client->lastname)" required>Nazwisko</x-form.input>
-                        <x-form.input name="city" :value="old('city', $client->city)" required>Miejscowość</x-form.input>
-                        <x-form.input name="phone_number" type="tel" :value="old('phone_number', $client->phone_number)" placeholder="xxx-xxx-xxx" >Numer Telefonu</x-form.input>
+                        <x-form.input name="lastname" :value="old('lastname', $client->lastname)" required>Nazwisko
+                        </x-form.input>
+                        <x-form.input name="city" :value="old('city', $client->city)" required>Miejscowość
+                        </x-form.input>
+                        <x-form.input name="phone_number" type="tel" :value="old('phone_number', $client->phone_number)"
+                                      placeholder="xxx-xxx-xxx">Numer Telefonu
+                        </x-form.input>
                         <x-form.input name="status" :value="old('status', $client->status)">Status</x-form.input>
 
                         <x-form.button>Zatwierdź</x-form.button>

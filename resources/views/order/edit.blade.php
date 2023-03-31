@@ -15,15 +15,15 @@
                                     id="client_id"
                                     class="bg-gray-50 border border-gray-400 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     required>
-                                    <option value="{{ $order->client_id }}"
-                                            {{ $order->client_id == $order->clients->id ? 'selected' : '' }}
-                                    >
-                                        {{ $order->clients->name . ' '. $order->clients->lastname }}
-                                    </option>
+                                <option value="{{ $order->client_id }}"
+                                    {{ $order->client_id == $order->clients->id ? 'selected' : '' }}
+                                >
+                                    {{ $order->clients->name . ' '. $order->clients->lastname }}
+                                </option>
                             </select>
                         </x-form.field>
 
-                        <div x-data="{ show_weight: ''}" >
+                        <div x-data="{ show_weight: ''}">
                             <x-form.field>
                                 <x-form.label>Typ Zamówienia</x-form.label>
                                 <select x-model="show_weight"
@@ -46,9 +46,14 @@
                             </div>
                         </div>
 
-                        <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość</x-form.input>
-                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars())" required>Cena</x-form.input>
-                        <x-form.input name="deadline" type="datetime-local" :value="old('deadline', $order->deadline)" required>Termin Realizacji Zamówienia</x-form.input>
+                        <x-form.input name="quantity" :value="old('quantity', $order->quantity)" required>Ilość
+                        </x-form.input>
+                        <x-form.input name="price" type="numeric" :value="old('price', $order->priceToDolars())"
+                                      required>Cena
+                        </x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" :value="old('deadline', $order->deadline)"
+                                      required>Termin Realizacji Zamówienia
+                        </x-form.input>
                         <div class="grid justify-items-end mt-6">
                             <label class="text-sm">Ostatnia modyfikacja zamówienia</label>
                             <p class="text-sm">{{ \Carbon\Carbon::parse($order->updated_at)->locale('pl')->diffForHumans() }}</p>
@@ -57,6 +62,9 @@
                     </form>
                 </div>
             </main>
+
+
+
         </div>
     </section>
 </x-nav.layout>

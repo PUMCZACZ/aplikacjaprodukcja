@@ -85,7 +85,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::get('/test', function () {
-
     flash('Jakaś informacja', 'error');
 
     return redirect(route('home'));

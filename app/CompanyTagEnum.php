@@ -14,7 +14,7 @@ enum CompanyTagEnum: string
             self::PARTSSUPPLIER      => 'Dostawca Części',
             self::RAWMATERIALSUPLIER => 'Dostawca Surowca',
             self::BAGSUPPLIER        => 'Dostawca Worków',
-            self::CUSTOMER => 'Klient',
+            self::CUSTOMER           => 'Klient',
         };
     }
 }

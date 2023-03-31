@@ -20,10 +20,10 @@
                                         {{ old('client_id') == $client->id ? 'selected' : '' }}
                                     >{{ ucwords($client->name . ' ' . $client->lastname)}}</option>
                                 @endforeach
-                                </select>
+                            </select>
                         </x-form.field>
 
-                        <div x-data="{ show_weight: ''}" >
+                        <div x-data="{ show_weight: ''}">
                             <x-form.field>
                                 <x-form.label>Typ Zamówienia</x-form.label>
                                 <select x-model="show_weight"
@@ -41,7 +41,9 @@
                             </div>
                         </div>
                         <x-form.input name="quantity" type="number" step="1" min="1" required>Ilość</x-form.input>
-                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" required>Termin Realizacji Zamówienia</x-form.input>
+                        <x-form.input name="deadline" type="datetime-local" value="{{ now() }}" required>Termin
+                            Realizacji Zamówienia
+                        </x-form.input>
 
                         <x-form.button>Dodaj</x-form.button>
 
@@ -52,7 +54,7 @@
         </div>
     </section>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.client').select2();
         });
     </script>

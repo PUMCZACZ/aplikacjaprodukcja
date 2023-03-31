@@ -1,7 +1,7 @@
 @php
-/**
- * @var \App\Models\Transport $transport
- */
+    /**
+     * @var \App\Models\Transport $transport
+     */
 @endphp
 <x-nav.layout>
     <section class="py-8 max-w-4xl mx-auto">
@@ -17,7 +17,9 @@
                         <x-form.input name="type_of_product">Typ Produktu</x-form.input>
                         <x-form.input name="product_amount">Ilość</x-form.input>
                         <x-form.input name="product_price" type="number" step="1" min="1" required>Cena</x-form.input>
-                        <x-form.input name="delivered_at" type="datetime-local" value="{{ now() }}" required>Data Dostarczenia</x-form.input>
+                        <x-form.input name="delivered_at" type="datetime-local" value="{{ now() }}" required>Data
+                            Dostarczenia
+                        </x-form.input>
 
                         <x-form.button>Dodaj</x-form.button>
 

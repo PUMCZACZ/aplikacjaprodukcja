@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property int id
  * @property string name_of_company
  * @property CompanyTagEnum tag
- * @property int phone
+ * @property int phone_number
  * @property Carbon created_at
  * @property Carbon updated_at
  */
@@ -22,10 +22,10 @@ class Company extends Model
 
     protected $guarded = [];
 
-    protected $casts = [
-        'created_at' => Carbon::class,
-        'updated_at' => Carbon::class,
-    ];
+//    protected $casts = [
+//        'created_at' => Carbon::class,
+//        'updated_at' => Carbon::class,
+//    ];
 
     public function clients(): HasMany
     {

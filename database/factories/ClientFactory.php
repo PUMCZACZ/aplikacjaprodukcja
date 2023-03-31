@@ -1,6 +1,7 @@
 <?php
 namespace Database\Factories;
 
+use App\ClientTypeEnum;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,8 @@ class ClientFactory extends Factory
             'name'     => fake()->firstName(),
             'lastname' => fake()->lastName(),
             'city'     => fake()->city(),
+            'type_of_client' => ClientTypeEnum::RETAILCLIENT,
+            'phone_number' => fake()->number(),
             'status'   => 1,
         ];
     }

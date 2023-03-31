@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name_of_company');
             $table->string('tag');
-            $table->integer('phone');
+            $table->integer('phone_number');
             $table->timestamps();
         });
     }
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->dropColumn('id');
             $table->dropColumn('name_of_company');
             $table->dropColumn('tag');
-            $table->dropColumn('phone');
+            $table->dropColumn('phone_number');
             $table->dropColumn('created_at');
             $table->dropColumn('updated_at');
         });

@@ -24,7 +24,6 @@ class EventServiceProvider extends ServiceProvider
             SendMailAboutCompletedOrderListener::class,
             SendSMSAboutShipmentListener::class,
         ],
-
     ];
 
     /**
