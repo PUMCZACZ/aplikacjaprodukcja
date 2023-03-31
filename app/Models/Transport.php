@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Transport extends Model
 {
     protected $guarded = [];
+
     use HasFactory;
 
     public function companies(): BelongsTo

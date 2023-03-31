@@ -43,6 +43,9 @@
                                         :active="request()->is('transport')">Transport
                             </x-nav.link>
 
+                            <x-nav.link href="{{ route('companies.index') }}"
+                                        :active="request()->is('company')">Firmy
+                            </x-nav.link>
                         </div>
                     </div>
                 </div>
