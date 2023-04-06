@@ -39,3 +39,4 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [UserController::class, 'create'])->middleware('guest')->name('login');
     Route::post('/login', [UserController::class, 'store'])->middleware('guest');
 });
+
