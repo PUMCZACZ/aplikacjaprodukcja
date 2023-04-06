@@ -91,8 +91,6 @@
     </nav>
 </div>
 
-<div id="app">
-</div>
 
 {{ $slot }}
 
